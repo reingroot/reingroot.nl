@@ -1,4 +1,4 @@
-			footer
+
 		</div> <!-- end of .main-wrapper -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
