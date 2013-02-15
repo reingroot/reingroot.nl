@@ -93,9 +93,17 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-.main-wrapper { width: 980px; margin: 0 auto; }
+html, body { height: 100%; }
 
-	.content { border: 1px solid; margin: 10px 0; }
+	.main-wrapper { max-width: 980px; margin: 0 auto; height: 100% }
+
+		.content { margin: 10px 0; }
+
+		.rg-temp { height: 50%; margin: 0 auto; padding-top: 2%; text-align: center; }
+		.rg-temp a { display: inline-block; max-height: 480px; max-width: 300px;  position: relative; }
+		.rg-temp img { -o-box-shadow: 1px 1px 9px #888; -moz-box-shadow: 1px 1px 9px #888; -webkit-box-shadow: 1px 1px 9px #888; box-shadow: 1px 1px 9px #888; }
+		.rg-temp .rg-business-card-front { position: absolute; top: 0; left: 0; -webkit-transition: opacity 0.5s ease-in-out; -moz-transition: opacity 0.5s ease-in-out; -o-transition: opacity 0.5s ease-in-out; transition: opacity 0.5s ease-in-out; }
+		.rg-temp a:hover .rg-business-card-front { opacity:0; }
 
 
 
