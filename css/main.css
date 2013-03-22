@@ -95,7 +95,110 @@ textarea {
 
 html, body { height: 100%; }
 
-	.main-wrapper { max-width: 960px; margin: 0 auto; height: 100% }
+	body { color: #333333; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+	h1, h2, h3, .main-nav li a, .tagline, .contact-info { font-family:"Clarendon URW Narrow Light", 'Century Schoolbook', 'Times New Roman', Times, serif; font-size-adjust:0.477; font-weight:200; font-style:normal; }
+	h1 { font-size: 2.25em; margin: 0 0 20px; text-align: center; }
+	h3 { color: #db4105; font-size: 1.5em; margin: 0 0 5px; }
+	p { margin: 0 0 20px; }
+	ol, ul { margin: 0 0 20px; }
+	a { color: inherit; font-size: inherit; }
+	input, textarea { font-size: 24px; }
+
+	.main-wrapper { max-width: 960px; margin: 0 auto; /*min-height: 100%; Turn on for sticky footer */ -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); }
+
+		header { position: relative; }
+
+			.rg-logo { left: 12px; position: absolute; top: 8px;  }
+
+			.main-nav { background-color: #33332d; height: 82px; }
+			.main-nav ol { float: right; margin: 42px 0 0; }
+			.main-nav li { float: left; margin-right: 50px; }
+			.main-nav .last { margin-right: 30px; }
+			.main-nav li a { color: #f0f0f0; font-size: 1.5625em; /*25px*/ text-decoration: none; }
+			.main-nav li a:hover { color: #adadab; }
+
+			.tagline { background-color: #F2F2F2; font-size: 1.375em; margin: 0; padding: 20px 30px 25px 170px; text-align: right; }
+
+		section { padding-bottom: 151px; }
+
+		section > article,
+		.core-values,
+		.contact-info { padding: 25px 3.125% 30px; }
+
+			.rg-services, .rg-contact { background-color: #f2f2f2; }
+
+			.rg-bio { background: transparent url(../img/portret.png) no-repeat 30px bottom; }
+			.rg-bio.content { padding-bottom: 0; }
+			.rg-bio img { float: left; width: 30.3125%; margin-right: 3.125%; }
+			.rg-bio article { float: right; margin-left: 310px; }
+
+			/* General inline, justified list style */
+			.rg-inline-list { text-align: justify; }
+			.rg-inline-list:after { content: ""; width: 100%; display: inline-block; zoom: 1; *display: inline; }
+			.rg-inline-list-item { display: inline-block; vertical-align: top; zoom: 1; *display: inline; }
+
+			.rg-services .rg-inline-list { list-style: none; padding: 0; overflow: hidden; }
+			.rg-services .rg-inline-list-item { background-color: #ffffff; font-size: 1em; display: inline-block; padding: 2.666666667% 2.666666667% 9999px; margin-bottom: -9999px; text-align: center; width: 25.777777777778%; vertical-align: top; zoom: 1; *display: inline; }
+			.rg-services .last { margin-right: 0; }
+			.rg-services .rg-inline-list-item h2 { color: #db4105; font-size: 1.875em; }
+			.rg-services .rg-inline-list-item p { text-align: left; margin: 0 0 15px; }
+			.rg-services .rg-inline-list-item h2 + p { min-height: 255px; }
+			.rg-services .rg-inline-list-item h3 { color: inherit; font-size: 1.17em; font-weight: bold; text-align: left; }
+			.rg-services .core-skills { padding-left: 20px; text-align: left; }
+
+			.rg-portfolio .items { list-style: none; padding: 0; margin: 0; }
+			.rg-portfolio .rg-portfolio-preview { position: relative; margin-bottom: 20px; }
+			.rg-portfolio .rg-portfolio-preview img { -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); }
+			.rg-portfolio .rg-portfolio-preview a { display: block; }
+			.rg-portfolio .rg-portfolio-preview div { background-color: rgba(219, 65, 5, 0.9); color: #ffffff; display: none; height: 149px; padding: 12px 24px; position: absolute; top: 0; width: 232px; }
+			.rg-portfolio .rg-portfolio-preview a:hover div { display: block; }
+			.rg-portfolio .rg-portfolio-preview h2 { font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; margin: 0; }
+			.rg-portfolio .rg-portfolio-preview .rg-services-used { bottom: 12px; list-style: none; margin: 0; padding: 0; position: absolute; }
+
+				.rg-portfolio-item { background: #e3f0f2; overflow: hidden; padding-top: 59px; position: relative; }
+				.rg-portfolio-item nav { background: #db4105; color: #ffffff; height: 30px; left: 0; padding-top: 5px; position: absolute; top: 0; width: 100%; }
+				.rg-portfolio-item nav a { margin-left: 3.125%; text-decoration: none; }
+				.rg-portfolio-item nav ol { float: right; margin: 0 3.125% 0 0; }
+				.rg-portfolio-item nav li { display: inline; margin-left: 24px; }
+				.rg-portfolio-item ul { float: left; list-style: none; padding: 0; margin: 0; width: 29.166666666667%; }
+				.rg-portfolio-item ul li { margin-bottom: 24px; -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); }
+				.rg-portfolio-item ul img { max-width: 100%; }
+				.rg-portfolio-item .last { margin-bottom: 0; }
+				.rg-portfolio-item .item-description { float: right; width: 65.555555555556%; }
+				.rg-portfolio-item .item-description h1 { text-align: left; }
+				.rg-portfolio-item .item-description a { color: #037e8b; font-weight: bold; text-decoration: none; }
+
+
+			.rg-contact .form-element { border: #dfdfde 1px solid; -webkit-box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.2); -moz-box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.2); box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.2); }
+			.rg-contact .message { width: 65.555555555556%; float: left; }
+			.rg-contact .personal-info-fields { width: 31.111111111111%; float: right; }
+				.rg-contact textarea { height: 180px; width: 91.864406779661%; padding: 24px 4.067796610169%; }
+				.rg-contact input { margin-bottom: 24px; width: 82.142857142857%; padding: 15px 8.571428571429%; }
+				.rg-contact input[type="submit"] { background: #db4105; color: #ffffff; font-weight: bold; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box; }
+
+		footer { background: #33332d; color: #ffffff; max-width: 960px; margin: -152px auto; padding-bottom: 24px; }
+		footer a { text-decoration: none; }
+
+			.rg-core-values-panel { padding-top: 20px; }
+			.rg-core-values-panel .rg-close { margin-left: 3.125%; }
+			.rg-core-values-panel .rg-close .close-marker { font-weight: bold; }
+			.rg-core-values-panel .rg-open { float: right; margin-right: 3.125%; }
+			.rg-core-values-panel .rg-open .heart { color: #db4105; }
+
+				.core-values { background: #484842; margin-top: 25px; }
+			.js .core-values { display: none; }
+
+			.contact-info { list-style: none; margin: 0; }
+		.js .contact-info { padding-top: 0; }
+			.contact-info > li { display: inline-block; margin-right: 10px; }
+
+			.social-icon { display: inline-block; height: 34px; width: 34px; }
+
+			.company-info { color: #d6d6d5; display: inline-block; font-size: 0.875em; margin-left: 2.5%; }
+
+/* DO NO REMOVE! CSS for the temporary version of this website
+ ------------------------------------- */
+	.main-wrapper { -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
 		.content { margin: 10px 0; }
 
@@ -104,17 +207,6 @@ html, body { height: 100%; }
 		.rg-temp img { -o-box-shadow: 1px 1px 9px #888; -moz-box-shadow: 1px 1px 9px #888; -webkit-box-shadow: 1px 1px 9px #888; box-shadow: 1px 1px 9px #888; }
 		.rg-temp .rg-business-card-front { position: absolute; top: 0; left: 0; -webkit-transition: opacity 0.5s ease-in-out; -moz-transition: opacity 0.5s ease-in-out; -o-transition: opacity 0.5s ease-in-out; transition: opacity 0.5s ease-in-out; }
 		.rg-temp a:hover .rg-business-card-front { opacity:0; }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -225,8 +317,70 @@ html, body { height: 100%; }
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
+@media only screen and (max-width: 768px) {
+	.contact-info li:last-child { margin-left: 93px; }
+
+	.rg-portfolio .rg-inline-list { text-align: center; }
+}
+
+@media only screen and (max-width: 700px) {
+	.main-nav li { margin-right: 15px; }
+	.main-nav li a { font-size: 1.438em; }
+	.tagline { font-size: 1.250em;}
+
+	.rg-bio { background-position: center top; padding-top: 212px;}
+	.rg-bio article { float: right; margin-left: 0; }
+
+	.rg-services .last { margin-bottom: 0; }
+	.rg-services .rg-inline-list { margin-bottom: 0; }
+	.rg-services .rg-inline-list::after { content: none; }
+	.rg-services .rg-inline-list-item { display: block; margin-bottom: 12px; padding: 2.666666667% 2.666666667%; width: auto; }
+	.rg-services .rg-inline-list-item img { max-width: 80px; }
+	.rg-services .rg-inline-list-item h2 { margin: 10px 0; }
+	.rg-services .rg-inline-list-item h2 + p { min-height: inherit; }
+}
+
+@media only screen and (max-width: 560px) {
+	.main-nav li a { font-size: 1.188em; }
+	.tagline { font-size: 1em;}
+}
+
+@media only screen and (max-width: 480px) {
+
+	.main-nav { height: auto; padding-top: 12px; text-align: center; }
+	.main-nav ol { float: none; padding: 0; margin: 15px 0 0; }
+	.main-nav li { border-top: #5c5c56 1px solid; float: none; margin-right: 0; padding: 5px 0 5px 0; }
+	.main-nav .last { margin-right: 0; }
+		.rg-logo { position: static; }
+		.rg-logo img { max-width: 85px; }
+
+	.tagline { padding: 12px; text-align: center; }
+
+	.rg-bio img { float: none; }
+	.rg-bio article { float: none; text-align: left; width: auto; }
+
+	.rg-services .rg-inline-list-item img { max-width: 50px; }
+
+	.rg-portfolio { float: none; padding-bottom: 10px; }
+	.rg-portfolio-item ul { width: 100%; margin-bottom: 24px; text-align: center; }
+	.rg-portfolio-item ul li { display: inline-block; }
+	.rg-portfolio-item .item-description { width: auto; }
+	.rg-portfolio .rg-inline-list .rg-services-used { text-align: left; }
+
+		.rg-portfolio-item nav { font-size: 0.875em; height: 28px; padding-top: 7px; }
+		.rg-portfolio-item nav ol { padding-left: 0; width: 120px; }
+	.rg-portfolio-item nav li { display: inline; margin-left: 0;  }
+
+	.rg-contact .message { width: auto; float: none; margin-bottom: 12px; }
+	.rg-contact .personal-info-fields { width: auto; float: none; }
+	.rg-contact .personal-info-fields input { margin-bottom: 12px; padding: 24px 4.067796610169%; width: 91.864406779661%; }
+
+	footer { text-align: center; }
+		.rg-core-values-panel .rg-open { display: inline-block; float: none; margin-bottom: 20px; }
+
+		.contact-info > li { margin: 0 0 20px; }
+		.contact-info li:last-child { margin: 0; }
+		.contact-info .mail-to { display: block; }
 }
 
 @media print,

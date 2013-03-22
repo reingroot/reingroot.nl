@@ -1,27 +1,49 @@
-<section class="content rg-services">
+<article class="content rg-services clearfix">
 	<h1>Services</h1>
-	<ol>
-		<li>
-			<img src="" alt="Strategy icon" />
+	<ol class="rg-inline-list">
+		<li class="rg-inline-list-item">
+			<img src="img/icon_strategy.png" alt="Strategy icon" />
 			<h2>Strategy</h2>
 			<p>
-				The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee.
+				Having worked with Accenture, I am versed in helping clients gain a clear understanding of how to
+				implement the right web development projects. I regularly help clients with strategic audits,
+				analysis, business requirements, planning, and business modeling.
 			</p>
+			<h3>Core skills:</h3>
+			<ul class="core-skills">
+				<li>Strategic analysis</li>
+				<li>Business model development</li>
+				<li>Project planning</li>
+			</ul>
 		</li>
-		<li>
-			<img src="" alt="Development icon" />
+		<li class="rg-inline-list-item">
+			<img src="img/icon_development.png" alt="Development icon" />
 			<h2>Development</h2>
 			<p>
-				My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker.
+				Uniquely, as a consultant I bring together fourteen years of User Experience design and front-end development, providing clients a skilled expert in defining, building and
+				managing web development projects.
 			</p>
+			<h3>Core skills:</h3>
+			<ul class="core-skills">
+				<li>Official User Experience design eduction</li>
+				<li>Fourteen years of solid html, css and javaScript experience</li>
+				<li>Skilled in defining and implementing technical project briefs</li>
+			</ul>
 		</li>
-		<li>
-			<img src="" alt="Delivery icon" />
+		<li class="rg-inline-list-item last">
+			<img src="img/icon_delivery.png" alt="Delivery icon" />
 			<h2>Delivery</h2>
 			<p>
-				Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected.
-				the same curve, just on opposite ends.
+				As a project lead I am able to identify potential problems before they impact projects due to my practical knowledge
+				and expertise as certified Scrum Master. Being an experienced UX designer and front-end developer, I am able to relate to UX, development and business
+				specialists to ensure projects are completed to quality, deadline and budget conditions.
 			</p>
+			<h3>Core skills:</h3>
+			<ul class="core-skills">
+				<li>Project management: Certified Scrum Master</li>
+				<li>Cross-discipline expertise</li>
+				<li>Entrepreneurial and result-driven</li>
+			</ul>
 		</li>
 	</ol>
-</section>
+</article>

@@ -20,4 +20,4 @@
 		<base href="<?php echo base_url(); ?>" />
     </head>
     <body>
-		<div class="main-wrapper">
+		<div class="main-wrapper" role="main">

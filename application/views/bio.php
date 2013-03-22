@@ -1,22 +1,30 @@
-<section class="content rg-bio">
-	<h1>About me</h1>
-	<img src="" alt="That's me" />
+<article class="content rg-bio clearfix">
+	<p>
+		<strong>From fourteen years of industry experience, I believe in establishing personal relationships with the new teams I work with and in. </strong>
+		My know-how encompasses both business and technical roles, giving me a unique perspective.
+		In technical projects, there is a tendency for miscommunications to arise due to the highly specialized nature of different expertises.
+		As a project lead and team member I help clients translate technical terminology and processes into clear and understandable terms.
+	</p>
+	<p>
+		My personal motto is that understanding and communicating
+		with others is always more productive when we take time to get to know each other.
+	</p>
+
 	<article>
-		<h2>The path of the righteous man is beset on all sides
-			by the iniquities of the selfish and the tyranny.</h2>
-		<h3>Passion</h3>
-		<p>My biggest passion lies with interactive web solutions that are driven by users and a business model; like web shops, applications and communities.</p>
-
-		<h3>Goals</h3>
-		<p>My goal is to create web solutions that:</p>
-		<ol>
-			<li>have a very positive, efficient and engaging User Experience</li>
-			<li>bring a high return on investment for you as a client</li>
-			<li>constructively contribute to the evolution of the web</li>
-		</ol>
-
-		<h3>Study</h3>
-		<p>I have always been interested in new technologies and human interaction. Beginning with my study in Multimedia Design (1998-2002) I have build a strong base in hand crafted, accessible (or in Dutch) web interface development (HTML, CSS, JS/AJAX).
-		My study in Interaction Design (2002-2006), combined with my strong knowledge of business models, has significantly complemented my practical development skills with the ability of creating web interfaces from a user centered as well as a commercial perspective.</p>
+		<h3>Focused on experience</h3>
+		<p>
+			<strong>I have always been interested in new technologies and human interaction.</strong>
+			As my clients can testify, my work is my passion. My broad experience, expert knowledge and
+			proactive approach are driven by a desire for quality, shared learning, and professional
+			development.
+		</p>
+		<p>
+			In my professional work for clients and in personal endeavors, I actively forge responsible
+			entrepreneurship, sustainability, and informed policies to keep the internet healthy.
+		</p>
 	</article>
-</section>
+
+
+
+
+</article>

@@ -27,11 +27,14 @@ class Main extends CI_Controller {
 
 	public function all()
 	{
+		$this->load->model('Portfolio_model', '', TRUE);
+		$data["portfolio_items"] = $this->Portfolio_model->get_all_items();
+
 		$this->load->view('header');
 		$this->load->view('main-nav');
 		$this->load->view('bio');
 		$this->load->view('services');
-		$this->load->view('portfolio');
+		$this->load->view('portfolio', $data);
 		$this->load->view('contact');
 		$this->load->view('footer');
 	}

@@ -1,21 +1,28 @@
-<header>
-	<a href="">
-		<img src="" alt="Logo - Rein Groot.nl"
-	</a>
-	<nav>
-		<ol>
+<header role="banner" class="clearfix">
+	<nav role="navigation" class="main-nav clearfix">
+		<a href="/" class="rg-logo">
+			<img src="img/logo.png" alt="Logo - Rein Groot.nl" />
+		</a>
+
+		<ol class="clearfix">
 			<li>
 				<a href="">About</a>
 			</li>
 			<li>
-				<a href="">Services</a>
+				<a href="services">Services</a>
 			</li>
 			<li>
-				<a href="">Portfolio</a>
+				<a href="portfolio">Portfolio</a>
 			</li>
-			<li>
-				<a href="">Contact</a>
+			<li class="last">
+				<a href="contact">Contact</a>
 			</li>
 		</ol>
 	</nav>
+
+	<p class="tagline">
+		Strategy, development and delivery of online and mobile solutions.
+	</p>
 </header>
+
+<section>
