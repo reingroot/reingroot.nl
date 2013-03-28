@@ -27,16 +27,39 @@ class Main extends CI_Controller {
 
 	public function all()
 	{
+		$this->load->helper(array('form'));
+		$this->load->library('form_validation');
+
 		$this->load->model('Portfolio_model', '', TRUE);
 		$data["portfolio_items"] = $this->Portfolio_model->get_all_items();
 
-		$this->load->view('header');
-		$this->load->view('main-nav');
-		$this->load->view('bio');
-		$this->load->view('services');
-		$this->load->view('portfolio', $data);
-		$this->load->view('contact');
-		$this->load->view('footer');
+		$this->load->helper(array('form'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<li>', '</li>');
+
+		$data["enable_anchors"] = TRUE;
+
+		if ($this->form_validation->run('contact') == FALSE)
+		{
+			$this->load->view('header');
+			$this->load->view('main-nav', $data);
+			$this->load->view('bio');
+			$this->load->view('services');
+			$this->load->view('portfolio', $data);
+			$this->load->view('contact');
+			$this->load->view('footer');
+		}
+		else
+		{
+			$this->load->view('header');
+			$this->load->view('main-nav', $data);
+			$this->load->view('bio');
+			$this->load->view('services');
+			$this->load->view('portfolio', $data);
+			$this->load->view('contact_success');
+			$this->load->view('footer');
+		}
+
 	}
 }
 

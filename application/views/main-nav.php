@@ -1,3 +1,5 @@
+<?php $separator = isset($enable_anchors) && $enable_anchors ? '#' : '#'; ?>
+
 <header role="banner" class="clearfix">
 	<nav role="navigation" class="main-nav clearfix">
 		<a href="/" class="rg-logo">
@@ -6,16 +8,16 @@
 
 		<ol class="clearfix">
 			<li>
-				<a href="">About</a>
+				<a href="<?php echo $separator ?>">About</a>
 			</li>
 			<li>
-				<a href="services">Services</a>
+				<a href="<?php echo $separator ?>services">Services</a>
 			</li>
 			<li>
-				<a href="portfolio">Portfolio</a>
+				<a href="<?php echo $separator ?>portfolio">Portfolio</a>
 			</li>
 			<li class="last">
-				<a href="contact">Contact</a>
+				<a href="<?php echo $separator ?>contact">Contact</a>
 			</li>
 		</ol>
 	</nav>

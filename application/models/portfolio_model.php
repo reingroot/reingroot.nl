@@ -6,7 +6,6 @@ class Portfolio_model extends CI_Model {
         parent::__construct();
     }
 
-	// TODO: make a distinction between which slug is next and which is previous
 	/**
 	 * @param string $current_slug
 	 */
@@ -14,14 +13,48 @@ class Portfolio_model extends CI_Model {
 	{
 		if (! $current_item_id == "")
 		{
-			$this->db->select('slug');
+			$this->db->select('id,slug');
 			$this->db->from('portfolio_items');
 			$this->db->where('`id` = (select min(`id`) FROM `portfolio_items` where `id` > '.$current_item_id.')');
 			$this->db->or_where('`id` = (select max(`id`) FROM `portfolio_items` where `id` < '.$current_item_id.')');
 
 			$query = $this->db->get();
 
-			$current_item_id = $query->result_array();
+			$navigation_items = $query->result_array();
+
+			// If the current item is the last or the first item in the table, then we'll have to get the oposite item so the user can always navigate through the items in a loop
+			if (count($navigation_items) == 1)
+			{
+				if ($navigation_items[0]['id'] > $current_item_id)
+				{
+					$this->db->select('`id`, `slug`');
+					$this->db->from('portfolio_items');
+					$this->db->where('active',1);
+					$this->db->order_by('id', 'DESC');
+					$this->db->limit(1);
+
+					$query = $this->db->get();
+
+					$last_item = $query->row_array();
+
+					array_unshift($navigation_items, $last_item);
+
+				} else if ($navigation_items[0]['id'] < $current_item_id) {
+					$this->db->select('`id`, `slug`');
+					$this->db->from('portfolio_items');
+					$this->db->where('active',1);
+					$this->db->order_by('id', 'ASC');
+					$this->db->limit(1);
+
+					$query = $this->db->get();
+
+					$first_item = $query->row_array();
+
+					array_push($navigation_items, $first_item);
+				}
+			}
+
+			return $navigation_items;
 
 		} else {
 
@@ -35,6 +68,7 @@ class Portfolio_model extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('portfolio_items');
+		$this->db->where('active',1);
 
 		$query = $this->db->get();
 
@@ -85,6 +119,7 @@ class Portfolio_model extends CI_Model {
 		{
 			$this->db->where('portfolio_items.slug', $item_slug);
 		}
+		$this->db->limit(1);
 
 		$query = $this->db->get();
 

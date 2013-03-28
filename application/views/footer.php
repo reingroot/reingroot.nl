@@ -5,8 +5,8 @@
 		<footer role="contentinfo" class="closed">
 			<div class="rg-core-values-panel">
 				<!-- todo: add these links with js -->
-				<a href="" class="rg-close"><span class="close-marker">X</span> Close</a>
-				<a href="" class="rg-open">I <span class="heart">&hearts;</span> what I do and this is why</a>
+				<!--<a href="" class="rg-close"><span class="close-marker">X</span> Close</a>-->
+				<a href="" class="rg-open">I <span class="heart">&hearts;</span> what I do and this is why...</a>
 
 				<article class="core-values">
 					<p>

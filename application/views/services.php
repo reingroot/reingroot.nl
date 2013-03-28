@@ -1,4 +1,5 @@
 <article class="content rg-services clearfix">
+	<a name="services"></a>
 	<h1>Services</h1>
 	<ol class="rg-inline-list">
 		<li class="rg-inline-list-item">
@@ -11,7 +12,7 @@
 			</p>
 			<h3>Core skills:</h3>
 			<ul class="core-skills">
-				<li>Strategic analysis</li>
+				<li>Strategic analysis and advice</li>
 				<li>Business model development</li>
 				<li>Project planning</li>
 			</ul>

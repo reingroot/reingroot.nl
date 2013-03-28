@@ -1,4 +1,5 @@
 <article class="content rg-bio clearfix">
+	<a name="bio"></a>
 	<p>
 		<strong>From fourteen years of industry experience, I believe in establishing personal relationships with the new teams I work with and in. </strong>
 		My know-how encompasses both business and technical roles, giving me a unique perspective.

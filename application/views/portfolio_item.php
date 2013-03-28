@@ -1,15 +1,30 @@
+<?php
+/**
+ * $data array holds the $navigation_items value
+ *
+ * @see Portfolio::item()
+ * @var Portfolio $navigation_items
+ */
+?>
+
 <article class="rg-portfolio-item">
+	<a name="portfolio-item"></a>
 	<nav>
 		<a href="portfolio/">&lt;&lt; Back to overview</a>
 		<ol>
-			<?php echo $this->pagination->create_links(); ?>
+			<li>
+				<a href="<?php echo base_url() . 'portfolio/item/' . $navigation_items[0]["slug"]; ?>">&lt; Previous</a>
+			</li>
+			<li>
+				<a href="<?php echo base_url() . 'portfolio/item/' . $navigation_items[1]["slug"]; ?>">Next &gt;</a>
+			</li>
 		</ol>
 	</nav>
 
 	<ul>
 	<?php foreach ($portfolio_item['images'] as $image):?>
 		<li>
-			<img src="img/portfolio/<?php echo $image['image_url']; ?>" alt="Img x" />
+			<img src="img/portfolio/<?php echo $image['thumb_image_url']; ?>" alt="Img x" />
 		</li>
 	<?php endforeach;?>
 	</ul>

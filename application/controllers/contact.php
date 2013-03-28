@@ -4,10 +4,22 @@ class Contact extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('main-nav');
-		$this->load->view('contact');
-		$this->load->view('footer');
+		$this->load->helper(array('form'));
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_error_delimiters('<li>', '</li>');
+
+		if ($this->form_validation->run('contact') == FALSE)
+		{
+			$this->load->view('header');
+			$this->load->view('main-nav');
+			$this->load->view('contact');
+			$this->load->view('footer');
+		}
+		else
+		{
+			$this->load->view('formsuccess');
+		}
 	}
 }
 

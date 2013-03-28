@@ -18,3 +18,13 @@ if ( ! function_exists('nl2p'))
 		}
 	}
 }
+
+if ( ! function_exists('print_r_formatted'))
+{
+	function print_r_formatted($array2print="")
+	{
+		echo "<p>";
+		print_r($array2print);
+		echo "</p>";
+	}
+}
