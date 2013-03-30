@@ -10,7 +10,7 @@
 <article class="rg-portfolio-item">
 	<a name="portfolio-item"></a>
 	<nav>
-		<a href="portfolio/">&lt;&lt; Back to overview</a>
+		<a href="#portfolio">&lt;&lt; Back to overview</a>
 		<ol>
 			<li>
 				<a href="<?php echo base_url() . 'portfolio/item/' . $navigation_items[0]["slug"]; ?>">&lt; Previous</a>
