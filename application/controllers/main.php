@@ -2,65 +2,76 @@
 
 class Main extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/main
-	 *	- or -  
-	 * 		http://example.com/index.php/main/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/main/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-		$this->load->view('header');
-		$this->load->view('main-nav');
-		$this->load->view('bio');
-		$this->load->view('footer');
-	}
+    /**
+     * Index Page for this controller.
+     *
+     * Maps to the following URL
+     * 		http://example.com/index.php/main
+     *	- or -
+     * 		http://example.com/index.php/main/index
+     *	- or -
+     * Since this controller is set as the default controller in
+     * config/routes.php, it's displayed at http://example.com/
+     *
+     * So any other public methods not prefixed with an underscore will
+     * map to /index.php/main/<method_name>
+     * @see http://codeigniter.com/user_guide/general/urls.html
+     */
 
-	public function all()
-	{
-		$this->load->helper(array('form'));
-		$this->load->library('form_validation');
+    public function __construct()
+    {
+        parent::__construct();
+        $this->css_background = 'odd';
+    }
 
-		$this->load->model('Portfolio_model', '', TRUE);
-		$data["portfolio_items"] = $this->Portfolio_model->get_all_items();
+    public function index()
+    {
+        $data['css_background'] = $this->css_background;
 
-		$this->load->helper(array('form'));
-		$this->load->library('form_validation');
-		$this->form_validation->set_error_delimiters('<li>', '</li>');
+        $this->load->view('header', $data);
+        $this->load->view('main-nav');
+        $this->load->view('bio');
+        $this->load->view('footer');
+    }
 
-		$data["enable_anchors"] = TRUE;
+    public function all()
+    {
+        $data['css_background'] = '';
 
-		if ($this->form_validation->run('contact') == FALSE)
-		{
-			$this->load->view('header');
-			$this->load->view('main-nav', $data);
-			$this->load->view('bio');
-			$this->load->view('services');
-			$this->load->view('portfolio', $data);
-			$this->load->view('contact');
-			$this->load->view('footer');
-		}
-		else
-		{
-			$this->load->view('header');
-			$this->load->view('main-nav', $data);
-			$this->load->view('bio');
-			$this->load->view('services');
-			$this->load->view('portfolio', $data);
-			$this->load->view('contact_success');
-			$this->load->view('footer');
-		}
+        $this->load->helper(array('form'));
+        $this->load->library('form_validation');
 
-	}
+        $this->load->model('Portfolio_model', '', TRUE);
+        $data["portfolio_items"] = $this->Portfolio_model->get_all_items();
+
+        $this->load->helper(array('form'));
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<li>', '</li>');
+
+        $data["enable_anchors"] = TRUE;
+
+        if ($this->form_validation->run('contact') == FALSE)
+        {
+            $this->load->view('header', $data);
+            $this->load->view('main-nav', $data);
+            $this->load->view('bio');
+            $this->load->view('services');
+            $this->load->view('portfolio', $data);
+            $this->load->view('contact');
+            $this->load->view('footer');
+        }
+        else
+        {
+            $this->load->view('header', $data);
+            $this->load->view('main-nav', $data);
+            $this->load->view('bio');
+            $this->load->view('services');
+            $this->load->view('portfolio', $data);
+            $this->load->view('contact_success');
+            $this->load->view('footer');
+        }
+
+    }
 }
 
 /* End of file welcome.php */

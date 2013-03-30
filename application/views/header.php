@@ -19,5 +19,5 @@
 
 		<base href="<?php echo base_url(); ?>" />
     </head>
-    <body>
-		<div class="main-wrapper" role="main">
+    <body >
+		<div class="main-wrapper <?php echo $css_background; ?> " role="main">

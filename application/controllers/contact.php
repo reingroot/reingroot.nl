@@ -2,8 +2,16 @@
 
 class Contact extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->css_background = 'even';
+    }
+
 	public function index()
 	{
+	    $data['css_background'] = $this->css_background;
+
 		$this->load->helper(array('form'));
 		$this->load->library('form_validation');
 
@@ -11,7 +19,7 @@ class Contact extends CI_Controller {
 
 		if ($this->form_validation->run('contact') == FALSE)
 		{
-			$this->load->view('header');
+			$this->load->view('header', $data);
 			$this->load->view('main-nav');
 			$this->load->view('contact');
 			$this->load->view('footer');

@@ -2,9 +2,17 @@
 
 class Services extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->css_background = 'even';
+    }
+
 	public function index()
 	{
-		$this->load->view('header');
+	    $data['css_background'] = $this->css_background;
+
+		$this->load->view('header', $data);
 		$this->load->view('main-nav');
 		$this->load->view('services');
 		$this->load->view('footer');
