@@ -26,7 +26,10 @@ class Contact extends CI_Controller {
 		}
 		else
 		{
-			$this->load->view('formsuccess');
+			$this->load->view('header', $data);
+			$this->load->view('main-nav');
+			$this->load->view('contact_success');
+			$this->load->view('footer');
 		}
 	}
 }
