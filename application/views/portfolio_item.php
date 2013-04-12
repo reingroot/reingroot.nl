@@ -7,8 +7,7 @@
  */
 ?>
 
-<article class="rg-portfolio-item">
-	<a name="portfolio-item"></a>
+<article class="rg-portfolio-item" id="portfolio-item">
 	<nav>
 		<a href="#portfolio">&lt;&lt; Back to overview</a>
 		<ol>
@@ -24,7 +23,7 @@
 	<ul>
 	<?php foreach ($portfolio_item['images'] as $image):?>
 		<li>
-			<img src="img/portfolio/<?php echo $image['thumb_image_url']; ?>" alt="Img x" />
+			<img src="<?php echo base_url(); ?>img/portfolio/<?php echo $image['thumb_image_url']; ?>" alt="Img x" />
 		</li>
 	<?php endforeach;?>
 	</ul>

@@ -27,12 +27,12 @@
 			<ul class="contact-info">
 				<li>
 					<a href="http://www.linkedin.com/in/reingroot" class="social-icons">
-						<img src="img/icon_linkedin.png" alt="See my CV on LinkedIn" />
+						<img src="<?php echo base_url(); ?>img/icon_linkedin.png" width="34" height="34" alt="See my CV on LinkedIn" />
 					</a>
 				</li>
 				<li>
 					<a href="https://twitter.com/reingroot_nl" class="social-icons">
-						<img src="img/icon_twitter.png" alt="Follow me on Twitter" />
+						<img src="<?php echo base_url(); ?>img/icon_twitter.png" width="34" height="34"  alt="Follow me on Twitter" />
 					</a>
 				</li>
 				<li class="mail-to">

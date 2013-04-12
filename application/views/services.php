@@ -1,9 +1,8 @@
-<article class="content rg-services clearfix">
-	<a name="services"></a>
+<article class="content rg-services clearfix" id="services">
 	<h1>Services</h1>
 	<ol class="rg-inline-list">
 		<li class="rg-inline-list-item">
-			<img src="img/icon_strategy.png" alt="Strategy icon" />
+			<img src="<?php echo base_url(); ?>img/icon_strategy.png" alt="Strategy icon" width="129" height="128" />
 			<h2>Strategy</h2>
 			<p>
 				Having worked with Accenture, I am versed in helping clients gain a clear understanding of how to
@@ -18,7 +17,7 @@
 			</ul>
 		</li>
 		<li class="rg-inline-list-item">
-			<img src="img/icon_development.png" alt="Development icon" />
+			<img src="<?php echo base_url(); ?>img/icon_development.png" alt="Development icon" width="129" height="128" />
 			<h2>Development</h2>
 			<p>
 				Uniquely, as a consultant I bring together fourteen years of User Experience design and front-end development, providing clients a skilled expert in defining, building and
@@ -32,7 +31,7 @@
 			</ul>
 		</li>
 		<li class="rg-inline-list-item last">
-			<img src="img/icon_delivery.png" alt="Delivery icon" />
+			<img src="<?php echo base_url(); ?>img/icon_delivery.png" alt="Delivery icon" width="129" height="128" />
 			<h2>Delivery</h2>
 			<p>
 				As a project lead I am able to identify potential problems before they impact projects due to my practical knowledge

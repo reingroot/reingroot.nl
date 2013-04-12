@@ -3,7 +3,7 @@
 <header role="banner" class="clearfix">
 	<nav role="navigation" class="main-nav clearfix">
 		<a href="/" class="rg-logo">
-			<img src="img/logo.png" alt="Logo - Rein Groot.nl" />
+			<img src="<?php echo base_url(); ?>img/logo.png" height="142" width="142" alt="Logo - Rein Groot.nl" />
 		</a>
 
 		<ol class="clearfix">

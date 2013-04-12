@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/normalize.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
         <script src="<?php echo base_url(); ?>js/vendor/modernizr-2.6.2.min.js"></script>
-		<script data-main="js/main" src="<?php echo base_url(); ?>js/require-jquery.js"></script>
+		<script data-main="js/main" src="<?php echo base_url(); ?>js/require-jquery-ck.js"></script>
 
 		<base href="<?php echo base_url(); ?>" />
     </head>

@@ -96,16 +96,10 @@ textarea {
 /* For: system feedback
    ----------------------------------------------------------------*/
 
-	.error-collection p { margin-bottom: 0; }
-	.clean-gray { border:solid 1px #DEDEDE; background:#EFEFEF; color:#222222; padding:4px; text-align:center; }
-	.clean-yellow{ background:#FFFFCC none repeat scroll 0 0; border:1px solid #DEDEDE; color:#222222; padding:4px; text-align:center; }
-	.clean-ok { border:solid 1px #349534; background:#C9FFCA; color:#008000; font-weight:bold; padding:4px; text-align:center; }
-	.clean-error { border:solid 1px #CC0000;  background:#F7CBCA; color: #CC0000; margin: 0 0 20px; padding:4px; text-align:left; }
-	.clean-error ul { font-weight:normal; padding:8px 0 0 8px; list-style:inside; margin-bottom: 0; }
-
-.system-feedback .clean-error li { margin:0; color:#CC0000; font-weight:bold; }
-
-	.error, .error[type="text"] { border:1px solid #CC0000; height:16px; padding:2px 0 1px 2px; }
+	.system-feedback { background-position: 20px center; background-repeat: no-repeat; color: #ffffff; padding: 20px 20px 20px 75px; min-height: 40px; }
+	.system-feedback.success { background-color: #64b432; background-image: url(../img/icon_checkmark_round.png); color: #ffffff; }
+	.system-feedback.error { background-color: #e60000; background-image: url(../img/icon_exclamation_round.png); color: #ffffff; }
+		.form-element.error { border:2px solid #CC0000; }
 
 	form em { background: none repeat scroll 0 0 #F7CBCA; left: 230px; position: absolute; text-align: left; top: 6px; width: 215px; }
 	form textarea + em { display:block; left:0; position:inherit; top:0; width:285px; }
@@ -142,7 +136,7 @@ html, body { height: 100%; }
 
 			.tagline { background-color: #F2F2F2; font-size: 1.375em; margin: 0; padding: 20px 30px 25px 170px; text-align: right; }
 
-		section { padding-bottom: 151px; }
+		section { padding-bottom: 130px; }
 
 		section > article,
 		.core-values,
@@ -163,9 +157,9 @@ html, body { height: 100%; }
 			.rg-services .rg-inline-list { list-style: none; padding: 0; overflow: hidden; }
 			.rg-services .rg-inline-list-item { background-color: #ffffff; font-size: 1em; display: inline-block; padding: 2.666666667% 2.666666667% 9999px; margin-bottom: -9999px; text-align: center; width: 25.777777777778%; vertical-align: top; zoom: 1; *display: inline; }
 			.rg-services .last { margin-right: 0; }
-			.rg-services .rg-inline-list-item h2 { color: #db4105; font-size: 1.875em; }
-			.rg-services .rg-inline-list-item p { text-align: left; margin: 0 0 15px; }
-			.rg-services .rg-inline-list-item h2 + p { min-height: 255px; }
+			.rg-services .rg-inline-list-item h2 { color: #db4105; font-size: 1.875em; margin: 0.400em 0; }
+			.rg-services .rg-inline-list-item p { line-height: 26px; margin: 0 0 15px; text-align: left; }
+			.rg-services .rg-inline-list-item h2 + p { min-height: 295px; }
 			.rg-services .rg-inline-list-item h3 { color: inherit; font-size: 1.17em; font-weight: bold; text-align: left; }
 			.rg-services .core-skills { padding-left: 20px; text-align: left; }
 
@@ -195,7 +189,7 @@ html, body { height: 100%; }
 
 
 			.rg-contact form label { margin-bottom: 5px; display: inline-block; }
-			.rg-contact .form-element { border: #dfdfde 1px solid; -webkit-box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.2); -moz-box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.2); box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.2); }
+				.form-element { border: #dfdfde 1px solid; -webkit-box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.2); -moz-box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.2); box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.2); }
 			.rg-contact .message { width: 65.555555555556%; float: left; }
 			.rg-contact .personal-info-fields { width: 31.111111111111%; float: right; }
 				.rg-contact textarea { height: 205px; width: 91.864406779661%; padding: 24px 4.067796610169%; }

@@ -1,5 +1,4 @@
-<article class="content rg-portfolio">
-	<a name="portfolio"></a>
+<article class="content rg-portfolio" id="portfolio">
 	<h1>Portfolio</h1>
 	<ol class="items rg-inline-list">
 
@@ -17,9 +16,9 @@
 				<li class="rg-inline-list-item rg-portfolio-preview">
 					<a href="portfolio/item/<?php echo $item['slug']; ?>">
 						<?php if ($item['preview_image'] != "") { ?>
-							<img src="img/portfolio/<?php echo $item['preview_image']; ?>" alt="<?php echo $item['title']; ?>" />
+							<img src="<?php echo base_url(); ?>img/portfolio/<?php echo $item['preview_image']; ?>" width="280" height="173" alt="<?php echo $item['title']; ?>" />
 						<?php } else { ?>
-							<img src="img/portfolio/portfolio_item_x.png" alt="<?php echo $item['title']; ?>" />
+							<img src="<?php echo base_url(); ?>img/portfolio/portfolio_item_x.png" width="280" height="173" alt="<?php echo $item['title']; ?>" />
 						<?php } ?>
 						<div>
 							<h2><?php echo $item['preview_title']; ?></h2>
