@@ -13,7 +13,7 @@
 	<article>
 		<h3>Focused on experience</h3>
 		<p>
-			<strong>I have always been interested in new technologies and human interaction.</strong>
+			<strong>I have always been interested in human interaction and new technologies.</strong>
 			As my clients can testify, my work is my passion. My broad experience, expert knowledge and
 			proactive approach are driven by a desire for quality, shared learning, and professional
 			development.
