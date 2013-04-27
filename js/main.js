@@ -1,9 +1,11 @@
-require(["jquery", "modules/lazy-load"], function($, lazyLoad) {
+require(["jquery", "modules/lazy-load", "modules/item-loader"], function($, lazyLoad, itemLoader) {
     $(function() {
 
 		lazyLoad.init();
 
 //		lazyLoad.load('services');
+
+		itemLoader.init();
 
 		WebFontConfig = { fontdeck: { id: '29454' } };
 
