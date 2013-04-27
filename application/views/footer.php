@@ -5,7 +5,7 @@
 		<footer role="contentinfo" class="closed">
 			<div class="rg-core-values-panel">
 				<!-- todo: add these links with js -->
-				<!--<a href="" class="rg-close"><span class="close-marker">X</span> Close</a>-->
+				<!--<a href="" class="rg-close"><span class="close-marker">X</span> Close</a>
 				<a href="" class="rg-open">I <span class="heart">&hearts;</span> what I do and this is why...</a>
 
 				<article class="core-values">
@@ -22,6 +22,7 @@
 						ow we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.
 					</p>
 				</article>
+				-->
 			</div>
 
 			<ul class="contact-info">
