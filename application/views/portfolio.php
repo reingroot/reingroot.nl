@@ -1,6 +1,6 @@
 <article class="content rg-portfolio" id="portfolio">
 	<h1>Portfolio</h1>
-	<ol class="items rg-inline-list">
+	<ol class="items rg-inline-list js-item-loader">
 
 		<?php
 		/**
