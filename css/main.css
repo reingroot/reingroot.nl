@@ -350,14 +350,14 @@ html, body { height: 100%; }
 	.main-nav li a { font-size: 1.438em; }
 	.tagline { font-size: 1.250em;}
 
-	.rg-bio { background-position: center top; padding-top: 212px;}
+	.rg-bio { background-position: center top; padding-top: 230px;}
 	.rg-bio article { float: right; margin-left: 0; }
 
 	.rg-services .last { margin-bottom: 0; }
 	.rg-services .rg-inline-list { margin-bottom: 0; }
 	.rg-services .rg-inline-list::after { content: none; }
 	.rg-services .rg-inline-list-item { display: block; margin-bottom: 12px; padding: 2.666666667% 2.666666667%; width: auto; }
-	.rg-services .rg-inline-list-item img { max-width: 80px; }
+	.rg-services .rg-inline-list-item img { width: 80px; height: 80px; }
 	.rg-services .rg-inline-list-item h2 { margin: 10px 0; }
 	.rg-services .rg-inline-list-item h2 + p { min-height: inherit; }
 }
@@ -374,14 +374,14 @@ html, body { height: 100%; }
 	.main-nav li { border-top: #5c5c56 1px solid; float: none; margin-right: 0; padding: 5px 0 5px 0; }
 	.main-nav .last { margin-right: 0; }
 		.rg-logo { position: static; }
-		.rg-logo img { max-width: 85px; }
+		.rg-logo img { width: 85px; height: 85px; }
 
 	.tagline { padding: 12px; text-align: center; }
 
 	.rg-bio img { float: none; }
 	.rg-bio article { float: none; text-align: left; width: auto; }
 
-	.rg-services .rg-inline-list-item img { max-width: 50px; }
+	.rg-services .rg-inline-list-item img { width: 50px; height: 50px; }
 
 	.rg-portfolio { float: none; padding-bottom: 10px; }
 	.rg-portfolio-item ul { width: 100%; margin-bottom: 24px; text-align: center; }
