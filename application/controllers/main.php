@@ -62,6 +62,16 @@ class Main extends CI_Controller {
         }
         else
         {
+            $this->load->library('email');
+
+            $this->email->from($this->input->post('email'), $this->input->post('name'));
+            $this->email->to('welcome@reingroot.nl');
+
+            $this->email->subject('ReinGroot.nl :: Contact form');
+            $this->email->message($this->input->post('message'));
+
+            $this->email->send();
+
             $this->load->view('header', $data);
             $this->load->view('main-nav', $data);
             $this->load->view('bio');
