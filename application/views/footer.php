@@ -6,20 +6,17 @@
 			<div class="rg-core-values-panel">
 				<!-- todo: add these links with js -->
 				<!--<a href="" class="rg-close"><span class="close-marker">X</span> Close</a>-->
-				<a href="" class="rg-open">I <span class="heart">&hearts;</span> what I do and this is why...</a>
+				<a href="" class="rg-open">Rein <span class="heart">&hearts;</span> what he does and this is why...</a>
 
 				<article class="core-values">
 					<p>
-						Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
-					</p>
+                        From fourteen years of industry experience, Rein believes in establishing personal relationships with the new teams he works with. His personal motto is that understanding and communicating with others is always more productive when we take time to get to know each other.
+                    </p>
+                    <p>
+                        “In technical projects, there is a tendency for miscommunications to arise due to the highly specialized nature of different expertises. As a project lead or team member I help clients translate technical terminology and processes into clear and understandable terms.”
+                    </p>
 					<p>
-						My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is.
-					</p>
-					<p>
-						You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out.
-					</p>
-					<p>
-						ow we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.
+                        In his professional work for clients and in personal endeavors, Rein actively forges responsible entrepreneurship, sustainability, and informed policies.
 					</p>
 				</article>
 			</div>

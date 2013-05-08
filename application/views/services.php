@@ -5,9 +5,9 @@
 			<img src="<?php echo base_url(); ?>img/icon_strategy.png" alt="Strategy icon" width="129" height="128" />
 			<h2>Strategy</h2>
 			<p>
-				Having worked with Accenture, I am versed in helping clients gain a clear understanding of how to
-				implement the right web development projects. I regularly help clients with strategic audits,
-				analysis, business requirements, planning, and business modeling.
+                Having worked with Accenture, Rein is versed in helping clients gain a clear understanding of how to
+                implement the right web development projects. Rein regularly help clients with strategic audits, analysis,
+                business requirements, planning, and business modeling.
 			</p>
 			<h3>Core skills:</h3>
 			<ul class="core-skills">
@@ -20,13 +20,14 @@
 			<img src="<?php echo base_url(); ?>img/icon_development.png" alt="Development icon" width="129" height="128" />
 			<h2>Development</h2>
 			<p>
-				Uniquely, as a consultant I bring together fourteen years of User Experience design and front-end development, providing clients a skilled expert in defining, building and
-				managing web development projects.
+                Uniquely, as a consultant Rein brings together fourteen years of User Experience design and front-end
+                development, providing clients a skilled expert in defining, building and managing web development
+                projects.
 			</p>
 			<h3>Core skills:</h3>
 			<ul class="core-skills">
-				<li>Official User Experience design eduction</li>
-				<li>Fourteen years of solid html, css and javaScript experience</li>
+				<li>Official User Experience (UX) design eduction</li>
+				<li>Fourteen years of solid HTML, CSS and JavaScript experience</li>
 				<li>Skilled in defining and implementing technical project briefs</li>
 			</ul>
 		</li>
@@ -34,9 +35,10 @@
 			<img src="<?php echo base_url(); ?>img/icon_delivery.png" alt="Delivery icon" width="129" height="128" />
 			<h2>Delivery</h2>
 			<p>
-				As a project lead I am able to identify potential problems before they impact projects due to my practical knowledge
-				and expertise as certified Scrum Master. Being an experienced UX designer and front-end developer, I am able to relate to UX, development and business
-				specialists to ensure projects are completed to quality, deadline and budget conditions.
+                As a project lead Rein is able to identify potential problems before they impact projects due to practical
+                knowledge and expertise as certified Scrum Master. Being an experienced UX designer and front-end
+                developer, Rein is able to relate to UX, development and business specialists to ensure projects are
+                completed to quality, deadline and budget conditions.
 			</p>
 			<h3>Core skills:</h3>
 			<ul class="core-skills">

@@ -1,7 +1,7 @@
 <article class="content rg-contact clearfix" id="contact">
 	<h1>Contact</h1>
 	<p>
-		I'm looking forward to helping you realize the mobile or online solution that further grows your business. Get in contact and let's have a coffee! On me, of course :)
+        Do you have a new platform in development? See how Rein can help you develop a modern, user friendly and effective solution that fits your needs. Contact Rein for an initial, free, consultation.
 	</p>
 
 	<?php
