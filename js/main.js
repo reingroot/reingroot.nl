@@ -1,9 +1,10 @@
-require(["jquery", "modules/lazy-load", "modules/item-loader"], function($, lazyLoad, itemLoader) {
+require(["jquery", "modules/lazy-load", "modules/item-loader"], function($, lazyLoad, portfolioItemLoader) {
     $(function() {
 
-		lazyLoad.init();
-
+//		lazyLoad.init();
 //		lazyLoad.load('services');
+
+        portfolioItemLoader.init('.js-item-loader');
 
         // Set toggle event handler
         $('.js-toggle').on('click', function toggleElementClass(e){

@@ -47,12 +47,15 @@ class Portfolio extends CI_Controller {
 		$this->load->view('portfolio', $data);
 	}
 
-	public function ajax_portfolio_item()
+	public function ajax_item($item_slug = "tweede-kamer")
 	{
 		$this->load->model('Portfolio_model', '', TRUE);
+        $this->load->helper('custom');
 
+        $data["portfolio_item"] = $this->Portfolio_model->get_item($item_slug);
+        $data["navigation_items"] = $this->Portfolio_model->get_navigation($data["portfolio_item"]["id"]);
 
-		$this->load->view('portfolio_item');
+        $this->load->view('portfolio_item', $data);
 	}
 }
 

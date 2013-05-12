@@ -9,13 +9,13 @@
 
 <article class="rg-portfolio-item" id="portfolio-item">
 	<nav>
-		<a href="#portfolio">&lt;&lt; Back to overview</a>
+		<a href="#portfolio" class="js-to-overview">&lt;&lt; Back to overview</a>
 		<ol>
 			<li>
-				<a href="<?php echo base_url() . 'portfolio/item/' . $navigation_items[0]["slug"]; ?>">&lt; Previous</a>
+				<a href="<?php echo base_url() . 'portfolio/item/' . $navigation_items[0]["slug"]; ?>" class="js-to-previous">&lt; Previous</a>
 			</li>
 			<li>
-				<a href="<?php echo base_url() . 'portfolio/item/' . $navigation_items[1]["slug"]; ?>">Next &gt;</a>
+				<a href="<?php echo base_url() . 'portfolio/item/' . $navigation_items[1]["slug"]; ?>" class="js-to-next">Next &gt;</a>
 			</li>
 		</ol>
 	</nav>
