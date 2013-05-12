@@ -6,7 +6,7 @@
 			<div class="rg-core-values-panel">
 				<!-- todo: add these links with js -->
 				<!--<a href="" class="rg-close"><span class="close-marker">X</span> Close</a>-->
-				<a href="" class="rg-open">Rein <span class="heart">&hearts;</span> what he does and this is why...</a>
+				<a href="" class="rg-open js-toggle" data-toggle-class="open" data-toggle-element="footer">Rein <span class="heart">&hearts;</span> what he does and this is why...</a>
 
 				<article class="core-values">
 					<p>
@@ -33,12 +33,12 @@
 					</a>
 				</li>
 				<li class="mail-to">
-					<a href="mailto:letsdobusiness@reingroot.nl">
-						letsdobusiness@reingroot.nl
+					<a href="mailto:welcome@reingroot.nl">
+						welcome@reingroot.nl
 					</a>
 				</li>
 				<li>
-					<a href="tel:+31624863938">
+					<a href="tel:+31624863948">
 						+31 6 24 86 39 48
 					</a>
 				</li>
