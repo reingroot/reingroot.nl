@@ -23,7 +23,7 @@
 	</nav>
 
 	<p class="tagline">
-		Strategy, development and delivery of online and mobile solutions.
+		Strategy, development and delivery of online and mobile platforms.
 	</p>
 </header>
 

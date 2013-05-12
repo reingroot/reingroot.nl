@@ -1,26 +1,15 @@
 <article class="content rg-bio clearfix" id="bio">
 	<p>
-		<strong>From fourteen years of industry experience, I believe in establishing personal relationships with the new teams I work with and in. </strong>
-		My know-how encompasses both business and technical roles, giving me a unique perspective.
-		In technical projects, there is a tendency for miscommunications to arise due to the highly specialized nature of different expertises.
-		As a project lead and team member I help clients translate technical terminology and processes into clear and understandable terms.
-	</p>
-	<p>
-		My personal motto is that understanding and communicating
-		with others is always more productive when we take time to get to know each other.
+		With over fourteen years of industry experience, Rein encompasses both business and technical expertise, making him a valuable all-rounder for clients seeking to develop new platforms fast and efficiently. A skilled front-end developer, qualified project manager, and experienced technical consultant, with a background at Accenture, means Rein Groot can fit into multiple roles seamlessly.
 	</p>
 
 	<article>
-		<h3>Focused on experience</h3>
+		<h3>Delivering through shared development</h3>
 		<p>
-			<strong>I have always been interested in human interaction and new technologies.</strong>
-			As my clients can testify, my work is my passion. My broad experience, expert knowledge and
-			proactive approach are driven by a desire for quality, shared learning, and professional
-			development.
+            As Rein's clients can testify, they benefit not only from his broad experience, expert knowledge and proactive approach but also his drive for quality, shared learning, and professional development of the teams he works with. His ability to bring together proven skills in business planning, technical project management and front-end development under one umbrella means that he is a flexible resource for companies seeking to develop new mobile or web platforms efficiently.
 		</p>
 		<p>
-			In my professional work for clients and in personal endeavors, I actively forge responsible
-			entrepreneurship, sustainability, and informed policies to keep the internet healthy.
+            Find out more about Rein's approach, experience and past projects here. If you have a question about a potential project, don't hesitate to <a href="#contact">contact Rein directly</a>.
 		</p>
 	</article>
 
