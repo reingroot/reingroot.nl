@@ -123,6 +123,7 @@ html, body { height: 100%; }
     .odd { background-color: #FFFFFF; }
     .portfolio-item { background: #e3f0f2; }
 
+    .notransition { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; -ms-transition: none !important; transition: none !important; }
     .js .no-js-msg { display: none; }
 
 		header { position: relative; }
