@@ -13,7 +13,7 @@
 
 	<form action="<?php echo base_url() . $this->uri->uri_string(); ?>#contact" method="post">
 		<fieldset class="message">
-			<label for="message"><strong>How can I help you?</strong></label>
+			<label for="message"><strong>How can Rein help you?</strong></label>
 			<textarea name="message" id="message" class="form-element <?php echo (form_error('message') != '' ? 'error' : ''); ?>"><?php echo set_value('message'); ?></textarea>
 		</fieldset>
 		<fieldset class="personal-info-fields">
