@@ -27,6 +27,7 @@ class Main extends CI_Controller {
     public function index()
     {
         $data['css_background'] = $this->css_background;
+        $data['enable_anchors'] = FALSE;
 
         $this->load->view('header', $data);
         $this->load->view('main-nav');

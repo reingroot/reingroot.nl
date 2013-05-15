@@ -1,4 +1,4 @@
-<?php $separator = isset($enable_anchors) && $enable_anchors ? '#' : '#'; ?>
+<?php $separator = isset($enable_anchors) && $enable_anchors ? '#' : ''; ?>
 
 <header role="banner" class="clearfix">
 	<nav role="navigation" class="main-nav clearfix">

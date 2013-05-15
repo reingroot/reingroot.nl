@@ -6,7 +6,7 @@
 			<h2>Strategy</h2>
 			<p>
                 Having worked with Accenture, Rein is versed in helping clients gain a clear understanding of how to
-                implement the right web development projects. Rein regularly help clients with strategic audits, analysis,
+                implement the right web development projects. Rein regularly helps clients with strategic audits, analysis,
                 business requirements, planning, and business modeling.
 			</p>
 			<h3>Core skills:</h3>
