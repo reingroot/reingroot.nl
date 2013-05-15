@@ -24,8 +24,8 @@ class Portfolio extends CI_Controller {
 
 	public function item($item_slug = "tweede-kamer")
 	{
-		//$this->output->enable_profiler(TRUE);
 		$data['css_background'] = 'portfolio-item';
+        $data['is_portfolio_item'] = TRUE;
 
 		$this->load->helper('custom');
 		$this->load->model('Portfolio_model', '', TRUE);
