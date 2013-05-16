@@ -4,8 +4,8 @@ define(["jquery"], function($) {
         $items,                     // The content item previews
         $loadedItemContent,        // The element that is created to load the item content into
         origHeight,                 // The original height of the $itemsContainerParent
-        itemsContainerState = "";   // The state of the $itemsContainer (load, resize, slideIn, slideOut, reset)
-
+        itemsContainerState = "",   // The state of the $itemsContainer (load, resize, slideIn, slideOut, reset)
+        itemsContainerWidth;
 
     var init = function(itemsContainerParent) {
 
@@ -113,6 +113,10 @@ define(["jquery"], function($) {
     var resize = function resize() {
         itemsContainerState = "resize";
 
+        $itemsContainerParent.addClass('no-transition');
+        $itemsContainerParent.height($itemsContainerParent.height());
+
+
         if (!origHeight) { origHeight =  $itemsContainerParent.height(); }
 
         // Get the height and top/bottom padding to calculate the new height
@@ -121,7 +125,10 @@ define(["jquery"], function($) {
             itemContentParentPaddingBottom = parseInt($itemsContainerParent.css('paddingBottom')),
             parentHeight = itemContentWrapperHeight - (itemContentParentPaddingTop + itemContentParentPaddingBottom);
 
-        $itemsContainerParent.height(parentHeight + 'px');
+        setTimeout(function() {
+            $itemsContainerParent.removeClass('no-transition');
+            $itemsContainerParent.height(parentHeight + 'px');
+        }, 0);
     };
 
     // Slide the item content out of view to the left
