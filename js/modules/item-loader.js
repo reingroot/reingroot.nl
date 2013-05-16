@@ -4,11 +4,13 @@ define(["jquery"], function($) {
         $items,
         $itemContentWrapper,
         origHeight,
-        itemsContainerState = "";
+        itemsContainerState = "",
+        itemsContainerWidth;
 
     var init = function(itemsContainerParent) {
 
         $itemsContainerParent = $(itemsContainerParent);
+        itemsContainerWidth = $itemsContainerParent.outerWidth();
 
         // Get all variables from the context of the items container element
         $itemsContainer = $itemsContainerParent.find($itemsContainerParent.data('loaderContainer'));
@@ -102,7 +104,7 @@ define(["jquery"], function($) {
             });
 
             if (callback) {
-                setTimeout(callback, 500);
+                setTimeout(callback, 0);
             }
 		});
 	};
@@ -124,19 +126,21 @@ define(["jquery"], function($) {
     // Slide the item content out of view to the left
     var slideOut = function() {
         itemsContainerState = "slideOut";
-        $itemContentWrapper.css('left', -970);
+        $itemContentWrapper.css('left', ((itemsContainerWidth * -1) - 10)+'px');
+
+        console.log(((itemsContainerWidth * -1) - 10));
     };
 
     // Reset the container and it's items to their original position and height
     var reset = function() {
         itemsContainerState = "";
 
-        $itemContentWrapper.addClass('notransition');
+        $itemContentWrapper.addClass('no-transition');
         $itemsContainerParent.height(origHeight + 'px');
-        $itemContentWrapper.css('left', 970);
+        $itemContentWrapper.css('left', (itemsContainerWidth + 10)+'px');
 
         setTimeout(function() {
-            $itemContentWrapper.removeClass('notransition');
+            $itemContentWrapper.removeClass('no-transition');
         }, 500);
     };
 
