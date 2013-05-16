@@ -40,6 +40,10 @@ define(["jquery"], function($) {
                     reset();
                     break;
 
+                case "":
+                    cleanUp();
+                    break;
+
             }
         });
 
@@ -120,11 +124,12 @@ define(["jquery"], function($) {
         if (!origHeight) { origHeight =  $itemsContainerParent.height(); }
 
         // Get the height and top/bottom padding to calculate the new height
-        var itemContentWrapperHeight = $loadedItemContent.outerHeight(),
+        var loadedItemContentHeight = $loadedItemContent.outerHeight(),
             itemContentParentPaddingTop = parseInt($itemsContainerParent.css('paddingTop')),
             itemContentParentPaddingBottom = parseInt($itemsContainerParent.css('paddingBottom')),
-            parentHeight = itemContentWrapperHeight - (itemContentParentPaddingTop + itemContentParentPaddingBottom);
+            parentHeight = loadedItemContentHeight - (itemContentParentPaddingTop + itemContentParentPaddingBottom);
 
+        // Trigger a reflow before setting the new height
         setTimeout(function() {
             $itemsContainerParent.removeClass('no-transition');
             $itemsContainerParent.height(parentHeight + 'px');
@@ -147,6 +152,16 @@ define(["jquery"], function($) {
 
         setTimeout(function() { // Triggering reflow
             $loadedItemContent.removeClass('no-transition');
+        }, 0);
+    };
+
+    var cleanUp = function() {
+        console.log('reset done');
+        $itemsContainerParent.addClass('no-transition');
+        $itemsContainerParent.height('auto');
+
+        setTimeout(function() { // Triggering reflow
+            $itemsContainerParent.removeClass('no-transition');
         }, 0);
     };
 
