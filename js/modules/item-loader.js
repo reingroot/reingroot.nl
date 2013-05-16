@@ -1,11 +1,11 @@
 define(["jquery"], function($) {
-    var $itemsContainerParent,
-        $itemsContainer,
-        $items,
-        $itemContentWrapper,
-        origHeight,
-        itemsContainerState = "",
-        itemsContainerWidth;
+    var $itemsContainerParent,      // The main element containing the $itemsContainer amongst other elements
+        $itemsContainer,            // The element containing the content item previews
+        $items,                     // The content item previews
+        $loadedItemContent,        // The element that is created to load the item content into
+        origHeight,                 // The original height of the $itemsContainerParent
+        itemsContainerState = "";   // The state of the $itemsContainer (load, resize, slideIn, slideOut, reset)
+
 
     var init = function(itemsContainerParent) {
 
@@ -20,15 +20,15 @@ define(["jquery"], function($) {
 		$itemsContainerParent.css('position', 'relative');
 
         // Create and style the item wrapper
-        $itemContentWrapper = $( document.createElement('section') );
-        $itemContentWrapper.addClass('item-wrapper');
+        $loadedItemContent = $( document.createElement('section') );
+        $loadedItemContent.addClass('item-wrapper');
 
         // Attach the item wrapper to the container
-		$itemsContainerParent.append($itemContentWrapper);
+		$itemsContainerParent.append($loadedItemContent);
 
         // Add eventlistner to the items container to listen if the transition is complete and we can commence slideIn
         $itemsContainerParent.on('transitionend', function(e) {
-            var leftPos = parseInt($itemContentWrapper.css('left'));
+            var leftPos = parseInt($loadedItemContent.css('left'));
 
             switch (itemsContainerState) {
 
@@ -62,10 +62,10 @@ define(["jquery"], function($) {
     // Slide the new content into view from the right
     var slideIn = function() {
         itemsContainerState = "slideIn";
-        var posLeft = parseInt($itemContentWrapper.css('left'));
+        var posLeft = parseInt($loadedItemContent.css('left'));
 
         if (!posLeft == 0) {
-            $itemContentWrapper.css('left', 0);
+            $loadedItemContent.css('left', 0);
         }
     };
 
@@ -77,10 +77,10 @@ define(["jquery"], function($) {
 			data: {  },
 			dataType: 'html'
 		}).done(function( msg ) {
-            $itemContentWrapper.html(msg);
+            $loadedItemContent.html(msg);
 
             // Activate the 'overview' link
-            $itemContentWrapper.find('.js-to-overview').on('click', function(e) {
+            $loadedItemContent.find('.js-to-overview').on('click', function(e) {
 
                slideOut();
 
@@ -88,7 +88,7 @@ define(["jquery"], function($) {
             });
 
             // Activate the 'next' link
-            $itemContentWrapper.find('.js-to-next').on('click', function(e) {
+            $loadedItemContent.find('.js-to-next').on('click', function(e) {
 
                 next();
 
@@ -96,7 +96,7 @@ define(["jquery"], function($) {
             });
 
             // Activate the 'previous' link
-            $itemContentWrapper.find('.js-to-previous').on('click', function(e) {
+            $loadedItemContent.find('.js-to-previous').on('click', function(e) {
 
                 previous();
 
@@ -104,7 +104,7 @@ define(["jquery"], function($) {
             });
 
             if (callback) {
-                setTimeout(callback, 0);
+                setTimeout(callback, 200);
             }
 		});
 	};
@@ -112,10 +112,11 @@ define(["jquery"], function($) {
     // Resize the element where the item is gonna be slided over
     var resize = function resize() {
         itemsContainerState = "resize";
+
         if (!origHeight) { origHeight =  $itemsContainerParent.height(); }
 
         // Get the height and top/bottom padding to calculate the new height
-        var itemContentWrapperHeight = $itemContentWrapper.height(),
+        var itemContentWrapperHeight = $loadedItemContent.outerHeight(),
             itemContentParentPaddingTop = parseInt($itemsContainerParent.css('paddingTop')),
             itemContentParentPaddingBottom = parseInt($itemsContainerParent.css('paddingBottom')),
             parentHeight = itemContentWrapperHeight - (itemContentParentPaddingTop + itemContentParentPaddingBottom);
@@ -126,22 +127,20 @@ define(["jquery"], function($) {
     // Slide the item content out of view to the left
     var slideOut = function() {
         itemsContainerState = "slideOut";
-        $itemContentWrapper.css('left', ((itemsContainerWidth * -1) - 10)+'px');
-
-        console.log(((itemsContainerWidth * -1) - 10));
+        $loadedItemContent.css('left', ((itemsContainerWidth * -1) - 10)+'px');
     };
 
     // Reset the container and it's items to their original position and height
     var reset = function() {
         itemsContainerState = "";
 
-        $itemContentWrapper.addClass('no-transition');
+        $loadedItemContent.addClass('no-transition');
         $itemsContainerParent.height(origHeight + 'px');
-        $itemContentWrapper.css('left', (itemsContainerWidth + 10)+'px');
+        $loadedItemContent.css('left', (itemsContainerWidth + 10)+'px');
 
-        setTimeout(function() {
-            $itemContentWrapper.removeClass('no-transition');
-        }, 500);
+        setTimeout(function() { // Triggering reflow
+            $loadedItemContent.removeClass('no-transition');
+        }, 0);
     };
 
 	return {
