@@ -1,4 +1,4 @@
-<article class="content rg-portfolio js-item-loader" data-loader-container=".items" data-loader-items=".rg-portfolio-preview" id="portfolio">
+<article class="content rg-portfolio transition-height js-item-loader" data-loader-container=".items" data-loader-items=".rg-portfolio-preview" id="portfolio">
 	<h1>Portfolio</h1>
 	<ol class="items rg-inline-list">
 
