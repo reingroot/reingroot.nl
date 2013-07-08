@@ -20,14 +20,14 @@ define(["jquery"], function($) {
 		$itemsContainerParent.css('position', 'relative');
 
         // Create and style the item wrapper
-        $loadedItemContent = $( document.createElement('section') );
+        $loadedItemContent = $(document.createElement('section'));
         $loadedItemContent.addClass('item-wrapper transition-height');
 
         // Attach the item wrapper to the container
 		$itemsContainerParent.append($loadedItemContent);
 
         // Add eventlistner to the items container to listen if the transition is complete and we can commence slideIn
-        $itemsContainerParent.on('webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd', function(e) {
+        $itemsContainerParent.on('webkitTransitionEnd transitionend transitionEnd msTransitionEnd oTransitionEnd', function(e) {
             var leftPos = parseInt($loadedItemContent.css('left'));
 
             switch (itemsContainerState) {
@@ -47,79 +47,85 @@ define(["jquery"], function($) {
             }
         });
 
-        // Attach eventlisteners to the items
-        $items.on('click', function itemHandler(e) {
+        // Use the Ajax endpoint instead of the static endpoint when using javascript
+        $items.on('click', function(e) {
             var $this = $(this),
                 href = $this.find('a').attr('href');
-
-            // Replace the default href with the ajax version
-            var reg = /\/(item)\//;
-            href = href.replace(reg, "/ajax_$1/");
 
             // Call the slide in action
             load(href, resize);
 
             e.preventDefault();
         });
-	};
+    };
 
     // Slide the new content into view from the right
     var slideIn = function() {
         itemsContainerState = "slideIn";
         var posLeft = parseInt($loadedItemContent.css('left'));
 
-        if (!posLeft == 0) {
+        if (posLeft !== 0) {
             $loadedItemContent.css('left', 0);
         }
     };
 
     // Load the requested content
-	var load = function(url, callback) {
-		$.ajax({
-			type: "POST",
-			url: url,
-			data: {  },
-			dataType: 'html'
-		}).done(function( msg ) {
+    var load = function(url, callback) {
+        // Replace the default href with the ajax version
+        var reg = /\/(item)\//;
+        url = url.replace(reg, "/ajax_$1/");
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {  },
+            dataType: 'html'
+        }).done(function(msg) {
             $loadedItemContent.html(msg);
 
-            // Activate the 'overview' link
+            // Activate the 'back to overview' link
             $loadedItemContent.find('.js-to-overview').on('click', function(e) {
 
-               slideOut();
+                slideOut();
 
                 e.preventDefault();
             });
 
             // Activate the 'next' link
             $loadedItemContent.find('.js-to-next').on('click', function(e) {
+                var $this = $(this);
+                var href = $this.attr('href');
 
-                next();
+                load(href, resize);
+
 
                 e.preventDefault();
             });
 
             // Activate the 'previous' link
             $loadedItemContent.find('.js-to-previous').on('click', function(e) {
+                var $this = $(this);
+                var href = $this.attr('href');
 
-                previous();
+                load(href, resize);
 
                 e.preventDefault();
             });
 
+
             if (callback) {
                 setTimeout(callback, 200);
             }
-		});
-	};
+        });
+    };
 
     // Resize the element where the item is gonna be slided over
     var resize = function resize() {
         itemsContainerState = "resize";
 
-        $itemsContainerParent.addClass('no-transition');
         $itemsContainerParent.height($itemsContainerParent.height());
 
+        $itemsContainerParent.addClass('no-transition');
         origHeight =  $itemsContainerParent.height();
 
         // Get the height and top/bottom padding to calculate the new height
