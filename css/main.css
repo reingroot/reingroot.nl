@@ -181,7 +181,7 @@ html, body { height: 100%; }
 			.rg-portfolio .rg-portfolio-preview h2 { font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; margin: 0; }
 			.rg-portfolio .rg-portfolio-preview .rg-services-used { bottom: 12px; list-style: none; margin: 0; padding: 0; position: absolute; }
 
-            .rg-portfolio .item-wrapper { background: #ffffff; border: 1px solid; bottom: 0; left: 970px; position: absolute; width: 100%; -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-transition: left 1s ease-in-out, height 1s ease-in-out; -moz-transition: left 1s ease-in-out, height 1s ease-in-out; -o-transition: left 1s ease-in-out, height 1s ease-in-out; transition: left 1s ease-in-out, height 1s ease-in-out; }
+            .rg-portfolio .item-wrapper { background: #ffffff; bottom: 0; left: 970px; position: absolute; width: 100%; -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-transition: left 1s ease-in-out, height 1s ease-in-out; -moz-transition: left 1s ease-in-out, height 1s ease-in-out; -o-transition: left 1s ease-in-out, height 1s ease-in-out; transition: left 1s ease-in-out, height 1s ease-in-out; }
 
 				.rg-portfolio-item { background: #e3f0f2; overflow: hidden; padding-top: 59px; position: relative; }
 				.rg-portfolio-item nav { background: #db4105; color: #ffffff; height: 30px; left: 0; padding-top: 5px; position: absolute; top: 0; width: 100%; }

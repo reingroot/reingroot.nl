@@ -1,8 +1,9 @@
 define(["jquery"], function($) {
-    var $itemsContainerParent,      // The main element containing the $itemsContainer amongst other elements
+    var wrapperSize = '970px',// The size of the main content wrapper element
+        $itemsContainerParent,      // The main element containing the $itemsContainer amongst other elements
         $itemsContainer,            // The element containing the content item previews
         $items,                     // The content item previews
-        $loadedItemContent,        // The element that is created to load the item content into
+        $loadedItemContent,         // The element that is created to load the item content into
         origHeight,                 // The original height of the $itemsContainerParent
         itemsContainerState = "";   // The state of the $itemsContainer (load, resize, slideIn, slideOut, reset)
 
@@ -193,9 +194,8 @@ define(["jquery"], function($) {
     var reset = function() {
         itemsContainerState = "";
 
-        var itemsContainerWidth = $itemsContainerParent.outerWidth();
         $loadedItemContent.addClass('no-transition');
-        $loadedItemContent.css('left', (itemsContainerWidth + 10)+'px')
+        $loadedItemContent.css('left', wrapperSize)
             .height('auto');
 
         if ($itemsContainerParent.height() > origHeight) {
