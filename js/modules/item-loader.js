@@ -156,6 +156,11 @@ define(["jquery"], function($) {
                 $itemsContainerParent.removeClass('no-transition');
 
                 $itemsContainerParent.height(newHeight + 'px');
+
+                // If there is no transitionend event, trigger it manually
+                if (!_transitionEndExists()) {
+                    $itemsContainerParent.trigger('transitionend');
+                }
             }, 0);
         } else if (loadedItemContentHeight < itemsContainerParentHeight) {
             // Make sure this element doesn't transition when setting sizes explicitly in preparation to transitioning to a new value
@@ -171,6 +176,11 @@ define(["jquery"], function($) {
                 $loadedItemContent.removeClass('no-transition');
 
                 $loadedItemContent.height(newHeight + 'px');
+
+                // If there is no transitionend event, trigger it manually
+                if (!_transitionEndExists()) {
+                    $itemsContainerParent.trigger('transitionend');
+                }
             }, 0);
         } else {
             // Trigger a reflow before setting the new height
@@ -187,6 +197,11 @@ define(["jquery"], function($) {
 
         var itemsContainerWidth = $itemsContainerParent.outerWidth();
         $loadedItemContent.css('left', ((itemsContainerWidth * -1) - 10)+'px');
+
+        // If there is no transitionend event, trigger it manually
+        if (!_transitionEndExists()) {
+            $itemsContainerParent.trigger('transitionend');
+        }
     };
 
     // Reset the container and it's items to their original position and height
@@ -199,6 +214,11 @@ define(["jquery"], function($) {
 
         if ($itemsContainerParent.height() > origHeight) {
             $itemsContainerParent.height(origHeight + 'px');
+
+            // If there is no transitionend event, trigger it manually
+            if (!_transitionEndExists()) {
+                $itemsContainerParent.trigger('transitionend');
+            }
         } else if ($itemsContainerParent.height() === parseInt(origHeight)) {
             // If the container height does not need a reset, trigger the transitioned event manually to set the height property back to 'auto'
             $itemsContainerParent.trigger('transitionend');
@@ -217,6 +237,20 @@ define(["jquery"], function($) {
         setTimeout(function() { // Triggering reflow
             $itemsContainerParent.removeClass('no-transition');
         }, 0);
+    };
+
+    var _transitionEndExists = function() {
+        if ('ontransitionend' in window) {
+            return true;
+        } else if ('onwebkittransitionend' in window) {
+            return true;
+        } else if ('onotransitionend' in window) {
+            return true;
+        } else if ('onmstransitionend' in window) {
+            return true;
+        } else {
+            return false;
+        }
     };
 
     return {
