@@ -7,7 +7,7 @@ class Portfolio_model extends CI_Model {
     }
 
 	/**
-	 * @param string $current_slug
+	 * @param string $current_item_id
 	 */
 	function get_navigation($current_item_id="")
 	{
@@ -17,12 +17,13 @@ class Portfolio_model extends CI_Model {
 			$this->db->from('portfolio_items');
 			$this->db->where('`id` = (select min(`id`) FROM `portfolio_items` where `id` > '.$current_item_id.')');
 			$this->db->or_where('`id` = (select max(`id`) FROM `portfolio_items` where `id` < '.$current_item_id.')');
+            $this->db->order_by('`id`', 'ASC');
 
 			$query = $this->db->get();
 
 			$navigation_items = $query->result_array();
 
-			// If the current item is the last or the first item in the table, then we'll have to get the oposite item so the user can always navigate through the items in a loop
+			// If the current item is the last or the first item in the table, then we'll have to get the opposite item so the user can always navigate through the items in a loop
 			if (count($navigation_items) == 1)
 			{
 				if ($navigation_items[0]['id'] > $current_item_id)
@@ -69,6 +70,7 @@ class Portfolio_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('portfolio_items');
 		$this->db->where('active',1);
+        $this->db->order_by('`id`', 'ASC');
 
 		$query = $this->db->get();
 

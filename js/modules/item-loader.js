@@ -28,7 +28,6 @@ define(["jquery"], function($) {
 
         // Add eventlistner to the items container to listen if the transition is complete and we can commence slideIn
         $itemsContainerParent.on('webkitTransitionEnd transitionend transitionEnd msTransitionEnd oTransitionEnd', function(e) {
-            var leftPos = parseInt($loadedItemContent.css('left'));
 
             switch (itemsContainerState) {
 
