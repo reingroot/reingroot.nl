@@ -4,15 +4,14 @@ define(["jquery"], function($) {
         $items,                     // The content item previews
         $loadedItemContent,        // The element that is created to load the item content into
         origHeight,                 // The original height of the $itemsContainerParent
-        itemsContainerState = "",   // The state of the $itemsContainer (load, resize, slideIn, slideOut, reset)
-        itemsContainerWidth;
+        itemsContainerState = "";   // The state of the $itemsContainer (load, resize, slideIn, slideOut, reset)
 
     var init = function(itemsContainerParent) {
 
         $itemsContainerParent = $(itemsContainerParent);
-        itemsContainerWidth = $itemsContainerParent.outerWidth();
 
         // Get all variables from the context of the items container element
+        origHeight =  $itemsContainerParent.height();
         $itemsContainer = $itemsContainerParent.find($itemsContainerParent.data('loaderContainer'));
         $items = $itemsContainer.find($itemsContainerParent.data('loaderItems'));
 
@@ -56,6 +55,17 @@ define(["jquery"], function($) {
             load(href, resize);
 
             e.preventDefault();
+        });
+
+
+        var resizeTimer;
+        $(window).on('resize', function() {
+            clearTimeout(resizeTimer);
+
+            resizeTimer = setTimeout(function() {
+                origHeight =  $itemsContainerParent.height();
+            }, 500);
+
         });
     };
 
@@ -123,35 +133,48 @@ define(["jquery"], function($) {
     var resize = function resize() {
         itemsContainerState = "resize";
 
+        // Make sure this element doesn't transition when setting sizes explicitly in preparation to transitioning to a new value
+        $itemsContainerParent.addClass('no-transition');
+
+        // Set the height explicitly so it doesn't jump when transitioning
         $itemsContainerParent.height($itemsContainerParent.height());
 
-        $itemsContainerParent.addClass('no-transition');
-        origHeight =  $itemsContainerParent.height();
+        var newHeight;
 
         // Get the height and top/bottom padding to calculate the new height
         var loadedItemContentHeight = $loadedItemContent.outerHeight(),
-            itemsContainerParentHeight = $itemsContainerParent.outerHeight();
+            itemsContainerParentHeight = $itemsContainerParent.outerHeight(),
+            itemsContainerParentInnerHeight = $itemsContainerParent.height();
 
         if (loadedItemContentHeight > itemsContainerParentHeight) {
-            var newHeight = $itemsContainerParent.height() + (loadedItemContentHeight -  itemsContainerParentHeight);
+
+            var padding = itemsContainerParentHeight - itemsContainerParentInnerHeight;
+            newHeight = loadedItemContentHeight  - padding;
 
             // Trigger a reflow before setting the new height
             setTimeout(function() {
                 $itemsContainerParent.removeClass('no-transition');
+
                 $itemsContainerParent.height(newHeight + 'px');
             }, 0);
         } else if (loadedItemContentHeight < itemsContainerParentHeight) {
-            var newHeight = $loadedItemContent.height() + (itemsContainerParentHeight - loadedItemContentHeight);
+            // Make sure this element doesn't transition when setting sizes explicitly in preparation to transitioning to a new value
+            $loadedItemContent.addClass('no-transition');
+
+            // Set the current height explicitly before transitioning to the new height
+            $loadedItemContent.height(loadedItemContentHeight);
+
+            newHeight = loadedItemContentHeight + (itemsContainerParentHeight - loadedItemContentHeight);
 
             // Trigger a reflow before setting the new height
             setTimeout(function() {
-                $itemsContainerParent.removeClass('no-transition');
+                $loadedItemContent.removeClass('no-transition');
+
                 $loadedItemContent.height(newHeight + 'px');
             }, 0);
         } else {
             // Trigger a reflow before setting the new height
             setTimeout(function() {
-                $itemsContainerParent.removeClass('no-transition');
                 $itemsContainerParent.trigger('transitionend');
             }, 0);
         }
@@ -161,6 +184,8 @@ define(["jquery"], function($) {
     // Slide the item content out of view to the left
     var slideOut = function() {
         itemsContainerState = "slideOut";
+
+        var itemsContainerWidth = $itemsContainerParent.outerWidth();
         $loadedItemContent.css('left', ((itemsContainerWidth * -1) - 10)+'px');
     };
 
@@ -168,6 +193,7 @@ define(["jquery"], function($) {
     var reset = function() {
         itemsContainerState = "";
 
+        var itemsContainerWidth = $itemsContainerParent.outerWidth();
         $loadedItemContent.addClass('no-transition');
         $loadedItemContent.css('left', (itemsContainerWidth + 10)+'px')
             .height('auto');
@@ -194,10 +220,10 @@ define(["jquery"], function($) {
         }, 0);
     };
 
-	return {
-		init: init,
+    return {
+        init: init,
         slideIn: slideIn,
         load: load,
         slideOut: slideOut
-	};
+    };
 });
