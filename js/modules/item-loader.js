@@ -27,7 +27,7 @@ define(["jquery"], function($) {
 		$itemsContainerParent.append($loadedItemContent);
 
         // Add eventlistner to the items container to listen if the transition is complete and we can commence slideIn
-        $itemsContainerParent.on('webkitTransitionEnd transitionend transitionEnd msTransitionEnd oTransitionEnd', function(e) {
+        $itemsContainerParent.on('webkitTransitionEnd transitionend transitionEnd msTransitionEnd oTransitionEnd', function() {
 
             switch (itemsContainerState) {
 
@@ -174,6 +174,7 @@ define(["jquery"], function($) {
             // Trigger a reflow before setting the new height
             setTimeout(function() {
                 $loadedItemContent.removeClass('no-transition');
+                $itemsContainerParent.removeClass('no-transition');
 
                 $loadedItemContent.height(newHeight + 'px');
 
@@ -185,6 +186,7 @@ define(["jquery"], function($) {
         } else {
             // Trigger a reflow before setting the new height
             setTimeout(function() {
+                $itemsContainerParent.removeClass('no-transition');
                 $itemsContainerParent.trigger('transitionend');
             }, 0);
         }
@@ -246,10 +248,8 @@ define(["jquery"], function($) {
             return true;
         } else if ('onotransitionend' in window) {
             return true;
-        } else if ('onmstransitionend' in window) {
-            return true;
         } else {
-            return false;
+            return ('onmstransitionend' in window);
         }
     };
 
