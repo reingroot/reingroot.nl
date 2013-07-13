@@ -1,9 +1,5 @@
-require(["jquery", "modules/lazy-load"], function($, lazyLoad) {
+require(["jquery"], function($) {
     $(function() {
-
-//		lazyLoad.init();
-
-//		lazyLoad.load('services');
 
         // Set toggle event handler
         $('.js-toggle').on('click', function toggleElementClass(e){
