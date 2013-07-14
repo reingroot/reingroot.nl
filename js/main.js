@@ -1,4 +1,11 @@
-require(["jquery"], function($) {
+requirejs.config({
+    'shim': {
+        'vendor/jquery.ba-bbq.min': ['jquery'],
+        'vendor/jquery.ba-bbq': ['jquery']
+    }
+});
+
+require(['jquery', 'modules/active-link-highlighter'], function($) {
     $(function() {
 
         // Set toggle event handler
