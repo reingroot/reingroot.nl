@@ -138,6 +138,7 @@ html, body { height: 100%; }
 			.main-nav .last { margin-right: 30px; }
 			.main-nav li a { color: #f0f0f0; font-size: 1.5625em; /*25px*/ text-decoration: none; }
 			.main-nav li a:hover { color: #adadab; }
+			.main-nav li a.current { color: #db4105; }
 
 			.tagline { background-color: #F2F2F2; font-size: 1.375em; margin: 0; padding: 20px 30px 25px 170px; text-align: right; }
 

@@ -1,0 +1,1 @@
+define(["jquery","vendor/jquery.ba-bbq.min"],function(e){e(window).on("hashchange",function(){var t=e.param.fragment();e(".main-nav ol a").each(function(){var n=e(this).attr("href"),r=/\#/;n=n.replace(r,"");n===t?e(this).addClass("current"):e(this).removeClass("current")})});e(window).trigger("hashchange")});

@@ -23,6 +23,7 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="/img/favicon.png" />
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/normalize.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
