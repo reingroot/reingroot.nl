@@ -132,15 +132,18 @@ html, body { height: 100%; }
 
 		header { position: relative; }
 
-			.rg-logo { left: 12px; position: absolute; top: 8px;  }
-
 			.main-nav { background-color: #33332d; height: 82px; }
+            .main-nav .rg-logo { left: 12px; position: absolute; top: 8px;  }
 			.main-nav ol { float: right; margin: 42px 0 0; }
 			.main-nav li { float: left; margin-right: 50px; }
 			.main-nav .last { margin-right: 30px; }
 			.main-nav li a { color: #f0f0f0; font-size: 1.5625em; /*25px*/ text-decoration: none; }
 			.main-nav li a:hover { color: #adadab; }
 			.main-nav li a.current { color: #db4105; }
+
+            .main-nav.fixed { height: 39px; position: fixed; top: 0; width: 960px; z-index: 500; }
+            .main-nav.fixed .rg-logo { display: none; }
+            .main-nav.fixed ol { margin: 0; }
 
 			.tagline { background-color: #F2F2F2; font-size: 1.375em; margin: 0; padding: 20px 30px 25px 170px; text-align: right; }
 

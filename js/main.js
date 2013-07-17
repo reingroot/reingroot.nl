@@ -1,7 +1,8 @@
 requirejs.config({
     'shim': {
         'vendor/jquery.ba-bbq.min': ['jquery'],
-        'vendor/jquery.ba-bbq': ['jquery']
+        'vendor/jquery.ba-bbq': ['jquery'],
+        'vendor/viewport': ['jquery']
     }
 });
 
@@ -9,7 +10,7 @@ require(['jquery', 'modules/active-link-highlighter'], function($) {
 
     // On DOM load
     $(function() {
-        require(['modules/item-loader'], function(portfolioItemLoader) {
+        require(['modules/item-loader', 'modules/fixed-main-nav'], function(portfolioItemLoader) {
 
             portfolioItemLoader.init('.js-item-loader');
 

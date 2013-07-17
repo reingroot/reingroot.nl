@@ -1,0 +1,1 @@
+define(["jquery","vendor/viewport"],function(e){var t=!1;e(window).on("scroll",function(){setTimeout(function(){var n=e("header:in-viewport"),r=e("header:above-the-top");if(!t&&r.length){r.height("157").find(".main-nav").addClass("fixed");t=!0}else if(t&&n.length){n.height("auto").find(".main-nav").removeClass("fixed");t=!1}},100)});e(window).triggerHandler("scroll")});
