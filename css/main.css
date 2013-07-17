@@ -128,7 +128,7 @@ html, body { height: 100%; }
 
     .js .no-js-msg { display: none; }
 
-    .ajax-loading { background-color: rgb(255,255,255); background: rgba(255,255,255,0.8) url(../img/ajax-loader.gif) no-repeat center center; bottom: 0; left: 0; position: absolute; right: 0;  top: 0; }
+    .ajax-loading { background: rgb(255,255,255) url(../img/ajax-loader.gif) no-repeat center center; background-color: rgba(255,255,255,0.8); bottom: 0; left: 0; position: absolute; right: 0;  top: 0; }
 
 		header { position: relative; }
 
