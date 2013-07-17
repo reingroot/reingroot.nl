@@ -118,15 +118,17 @@ html, body { height: 100%; }
 	a { color: inherit; font-size: inherit; }
 	input, textarea { font-size: 24px; }
 
-	.main-wrapper { max-width: 960px; margin: 0 auto; min-height: 100%; /*Turn on for sticky footer */ overflow: hidden; -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); }
+    .transition-height { -webkit-transition: height 0.5s ease-in-out; -moz-transition: height 0.5s ease-in-out; -o-transition: height 0.5s ease-in-out; transition: height 0.5s ease-in-out; }
+    .no-transition { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; -ms-transition: none !important; transition: none !important; }
+
+    .main-wrapper { max-width: 960px; margin: 0 auto; min-height: 100%; /*Turn on for sticky footer */ overflow: hidden; -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); }
     .even { background-color: #F2F2F2; }
     .odd { background-color: #FFFFFF; }
     .portfolio-item { background: #e3f0f2; }
 
-    .transition-height { -webkit-transition: height 0.5s ease-in-out; -moz-transition: height 0.5s ease-in-out; -o-transition: height 0.5s ease-in-out; transition: height 0.5s ease-in-out; }
-    .no-transition { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; -ms-transition: none !important; transition: none !important; }
-
     .js .no-js-msg { display: none; }
+
+    .ajax-loading { background-color: rgb(255,255,255); background: rgba(255,255,255,0.8) url(../img/ajax-loader.gif) no-repeat center center; bottom: 0; left: 0; position: absolute; right: 0;  top: 0; }
 
 		header { position: relative; }
 
@@ -181,6 +183,10 @@ html, body { height: 100%; }
 			.rg-portfolio .rg-portfolio-preview a:hover div { display: block; }
 			.rg-portfolio .rg-portfolio-preview h2 { font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; margin: 0; }
 			.rg-portfolio .rg-portfolio-preview .rg-services-used { bottom: 12px; list-style: none; margin: 0; padding: 0; position: absolute; }
+
+            .rg-portfolio.ajax-loading h1,
+            .rg-portfolio.ajax-loading ol,
+            .rg-portfolio.ajax-loading section { opacity: 0; }
 
             .rg-portfolio .item-wrapper { background: #e3f0f2; top: 0; left: 970px; position: absolute; width: 100%; -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-transition: left 1s ease-in-out, height 1s ease-in-out; -moz-transition: left 1s ease-in-out, height 1s ease-in-out; -o-transition: left 1s ease-in-out, height 1s ease-in-out; transition: left 1s ease-in-out, height 1s ease-in-out; }
 
