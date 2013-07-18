@@ -142,9 +142,10 @@ html, body { height: 100%; }
 			.main-nav li a.current { color: #db4105; }
 
             /* The fixed version of the main navigation */
-            .main-nav.fixed { height: 39px; position: fixed; top: 0; width: 960px; z-index: 500; -webkit-transition: top 0.5s ease-out; -moz-transition: top 0.5s ease-out; -o-transition: top 0.5s ease-out; transition: top 0.5s ease-out; }
-            .main-nav.fixed .rg-logo { display: none; }
-            .main-nav.fixed ol { margin: 0; }
+        .fixed-nav { margin: 0 auto; max-width: 960px; position: fixed; top: 0; width: 100%; z-index: 500; -webkit-transition: top 0.5s ease-out; -moz-transition: top 0.5s ease-out; -o-transition: top 0.5s ease-out; transition: top 0.5s ease-out; }
+        .fixed-nav .main-nav { height: auto; }
+        .fixed-nav .rg-logo { display: none; }
+        .fixed-nav ol { margin: 0; }
 
 			.tagline { background-color: #F2F2F2; font-size: 1.375em; margin: 0; padding: 20px 30px 25px 170px; text-align: right; }
 

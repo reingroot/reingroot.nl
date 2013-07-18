@@ -10,16 +10,18 @@ define(['jquery', 'vendor/viewport'], function($) {
             if (!headerFixed && $headerHidden.length) {
 
                 $headerHidden.height('157');
-                $mainNav.css('top', '-' + $mainNav.outerHeight() + 'px');
+                $mainNav.wrap('<div></div>')
+                            .parent()
+                            .css('top', '-' + $mainNav.outerHeight() + 'px');
 
                 setTimeout(function() {
-                    $mainNav.css('top', '0').addClass('fixed');
+                    $mainNav.parent().addClass('fixed-nav').css('top', '0');
                     headerFixed = true;
                 }, 0);
 
             } else if (headerFixed && $headerVisible.length) {
                 $headerVisible.height('auto');
-                $mainNav.removeClass('fixed');
+                $mainNav.unwrap();
                 headerFixed = false;
             }
 
