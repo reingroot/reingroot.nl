@@ -141,7 +141,8 @@ html, body { height: 100%; }
 			.main-nav li a:hover { color: #adadab; }
 			.main-nav li a.current { color: #db4105; }
 
-            .main-nav.fixed { height: 39px; position: fixed; top: 0; width: 960px; z-index: 500; }
+            /* The fixed version of the main navigation */
+            .main-nav.fixed { height: 39px; position: fixed; top: 0; width: 960px; z-index: 500; -webkit-transition: top 0.5s ease-out; -moz-transition: top 0.5s ease-out; -o-transition: top 0.5s ease-out; transition: top 0.5s ease-out; }
             .main-nav.fixed .rg-logo { display: none; }
             .main-nav.fixed ol { margin: 0; }
 

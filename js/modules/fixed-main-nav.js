@@ -1,5 +1,6 @@
 define(['jquery', 'vendor/viewport'], function($) {
-    var headerFixed = false;
+    var headerFixed = false,
+        $mainNav    = $('header .main-nav');
 
     $(window).on('scroll', function() {
         setTimeout(function() {
@@ -7,16 +8,22 @@ define(['jquery', 'vendor/viewport'], function($) {
                 $headerHidden    = $('header:above-the-top');
 
             if (!headerFixed && $headerHidden.length) {
-                $headerHidden.height('157')
-                                .find('.main-nav').addClass('fixed');
-                headerFixed = true;
+
+                $headerHidden.height('157');
+                $mainNav.css('top', '-' + $mainNav.outerHeight() + 'px');
+
+                setTimeout(function() {
+                    $mainNav.css('top', '0').addClass('fixed');
+                    headerFixed = true;
+                }, 0);
+
             } else if (headerFixed && $headerVisible.length) {
-                $headerVisible.height('auto')
-                                .find('.main-nav').removeClass('fixed');
+                $headerVisible.height('auto');
+                $mainNav.removeClass('fixed');
                 headerFixed = false;
             }
 
-        }, 100);
+        }, 200);
     });
 
     $(window).triggerHandler('scroll');
