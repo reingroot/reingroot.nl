@@ -23,3 +23,7 @@ Thumbs.db
 ######################
 .idea
 CI_code_completion
+
+# Node modules #
+######################
+node_modules
