@@ -5,11 +5,12 @@ module.exports = function (grunt) {
         requirejs : {
             compile : {
                 options : {
-                    appDir  : "src/v-1/js",
-                    baseUrl : "./",
-                    dir     : "target/dest",
+                    appDir  : "js",
+                    baseUrl : "../",
+                    dir     : "test/target/dest",
                     paths   : {
-                        "v1" : "modules"
+                        "mods" : "../js/modules",
+                        "vendor" : "../js/vendor"
                     },
                     optimize : "uglify",
                     uglify : {
@@ -21,12 +22,27 @@ module.exports = function (grunt) {
                     preserveLicenceComments : true,
                     modules : [
                         {
-                            name : "v1/daterange/daterange",
+                            name :
+                                'mods/active-link-higlighter',
                             exclude : [
-                                'v1/jquery',
-                                'v1/jquery-ui',
-                                'v1/i18n',
-                                'nls/daterange'
+                                'vendor/jquery.ba-bbq.js',
+                                'vendor/jquery.ba-bbq.min.js',
+                                'vendor/modernizr-2.6.2.min.js',
+                                'jquery.js',
+                                'require.js',
+                                'require-jquery.js'
+                            ]
+                        },
+                        {
+                            name :
+                                'mods/item-loader',
+                            exclude : [
+                                'vendor/jquery.ba-bbq.js',
+                                'vendor/jquery.ba-bbq.min.js',
+                                'vendor/modernizr-2.6.2.min.js',
+                                'jquery.js',
+                                'require.js',
+                                'require-jquery.js'
                             ]
                         }
                     ]
@@ -34,7 +50,7 @@ module.exports = function (grunt) {
             }
         },
         jshint : {
-            files : ["src/v-1/js/modules/**/*.js"],
+            files : ["../../js/**/*.js"],
             options : {
                 "browser":  true,
                 "eqeqeq":   true,
@@ -57,10 +73,14 @@ module.exports = function (grunt) {
                 },
                 // ignore libs and known legacy issues
                 ignores : [
-                    "src/v-1/js/modules/query.js"
+                    "../js/query.js",
+                    "../js/require.js",
+                    "../js/require-jquery.js",
+                    "../js/modules/active-link-highliter.js",
+                    "../js/modules/item-loader.js"
                 ],
                 reporter : "checkstyle",
-                reporterOutput : "target/jshint/jshint-results.xml"
+                reporterOutput : "test/target/jshint/jshint-results.xml"
             }
         },
         mocha_phantomjs : {
