@@ -121,7 +121,7 @@ html, body { height: 100%; }
     .transition-height { -webkit-transition: height 0.5s ease-in-out; -moz-transition: height 0.5s ease-in-out; -o-transition: height 0.5s ease-in-out; transition: height 0.5s ease-in-out; }
     .no-transition { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; -ms-transition: none !important; transition: none !important; }
 
-    .main-wrapper { max-width: 960px; margin: 0 auto; min-height: 100%; /*Turn on for sticky footer */ overflow: hidden; -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); }
+    .main-wrapper { background: #ffffff; max-width: 960px; margin: 0 auto; min-height: 100%; /*Turn on for sticky footer */ overflow: hidden; -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2); box-shadow: 0 0 12px rgba(0,0,0,0.2); }
     .even { background-color: #F2F2F2; }
     .odd { background-color: #FFFFFF; }
     .portfolio-item { background: #e3f0f2; }
@@ -396,14 +396,22 @@ html, body { height: 100%; }
 
 @media only screen and (max-width: 480px) {
 
-	.main-nav { height: auto; padding-top: 12px; text-align: center; }
+    .main-wrapper { position: relative; }
+    .main-wrapper.open { left: 200px; }
+
+    body > .main-nav { background-image: url(../img/close-side-nav.png); background-repeat: no-repeat; background-position: center 15px; height: 100%; left: 0px; padding: 12px 0 0 5px; position: fixed; text-align: left; width: 200px; z-index: 0; }
+    .main-nav { height: auto; padding-top: 12px; text-align: center; }
 	.main-nav ol { float: none; padding: 0; margin: 15px 0 0; }
 	.main-nav li { border-top: #5c5c56 1px solid; float: none; margin-right: 0; padding: 5px 0 5px 0; }
 	.main-nav .last { margin-right: 0; }
-		.rg-logo { position: static; }
-		.rg-logo img { width: 85px; height: 85px; }
+    .js .main-nav .rg-logo { position: static; width: 100%; height: 40px; display: block; }
+    .main-nav .rg-logo img {  width: 85px; height: 85px; }
+    .js .main-nav .rg-logo img { display: none; }
 
 	.tagline { padding: 12px; text-align: center; }
+    .tagline:hover { cursor: pointer; }
+    .main-nav + .main-wrapper .tagline { padding: 12px 12px 12px 50px; background-image: url(../img/open-side-nav.png); background-repeat: no-repeat; background-position: left center; }
+    .main-wrapper.open .tagline { background-image: none; padding-left: 5px; }
 
 	.rg-bio img { float: none; }
 	.rg-bio article { float: none; text-align: left; width: auto; }

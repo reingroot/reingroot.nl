@@ -1,15 +1,20 @@
 define(['jquery', 'vendor/viewport'], function($) {
-    var headerFixed = false,
-        $mainNav    = $('header .main-nav');
+    var headerFixed     = false,
+        sideNavActive   = false,
+        $mainWrapper    = $('.main-wrapper'),
+        $mainNav        = $('header .main-nav'),
+        $homeLink       = $mainNav.find('.rg-logo'),
+        $mainNavOrgParent = $mainNav.parent(),
+        $taglineEl      = $('.tagline');
 
     $(window).on('scroll', function() {
         setTimeout(function() {
             var $headerVisible   = $('header:in-viewport'),
                 $headerHidden    = $('header:above-the-top');
 
-            if (!headerFixed && $headerHidden.length) {
+            if (Modernizr.mq('screen and (min-width: 481px)') && !headerFixed && $headerHidden.length) {
 
-                $headerHidden.height('157');
+                $headerHidden.height($headerHidden.outerHeight());
                 $mainNav.wrap('<div></div>')
                             .parent()
                             .css('top', '-' + $mainNav.outerHeight() + 'px');
@@ -19,7 +24,7 @@ define(['jquery', 'vendor/viewport'], function($) {
                     headerFixed = true;
                 }, 0);
 
-            } else if (headerFixed && $headerVisible.length) {
+            } else if (Modernizr.mq('screen and (min-width: 481px)') && headerFixed && $headerVisible.length) {
                 $headerVisible.height('auto');
                 $mainNav.unwrap();
                 headerFixed = false;
@@ -27,6 +32,32 @@ define(['jquery', 'vendor/viewport'], function($) {
 
         }, 200);
     });
-
     $(window).triggerHandler('scroll');
+
+    $(window).on('resize', function() {
+        setTimeout(function() {
+            if (!sideNavActive && Modernizr.mq('screen and (max-width: 480px)')) {
+                $('body').prepend($mainNav);
+
+                // Move the content to the side to show the navigation
+                $taglineEl.on('click', function() {
+                    $mainWrapper.toggleClass('open');
+                });
+
+                $homeLink.on('click', function(e) {
+                    $mainWrapper.toggleClass('open');
+
+                    e.preventDefault();
+                });
+
+                sideNavActive = true;
+            } else if (sideNavActive && Modernizr.mq('screen and (min-width: 481px)')) {
+                $($mainNavOrgParent).prepend($mainNav);
+                $taglineEl.off('click');
+
+                sideNavActive = false;
+            }
+        }, 200);
+    });
+    $(window).triggerHandler('resize');
 });
