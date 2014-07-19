@@ -22,6 +22,7 @@ Thumbs.db
 # IDE files #
 ######################
 .idea
+*.iml
 CI_code_completion
 
 # Node modules #
