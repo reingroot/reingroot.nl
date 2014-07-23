@@ -1,10 +1,11 @@
-define(['jquery', 'vendor/jquery.ba-bbq.min'], function($) {
+define(['jquery', 'vendor/jquery.ba-bbq.min'], function ($) {
+    "use strict";
 
-    $(window).on('hashchange', function(e) {
+    $(window).on('hashchange', function () {
 
         var url = $.param.fragment();
 
-        $('.main-nav ol a').each(function() {
+        $('.main-nav ol a').each(function () {
             var href = $(this).attr('href');
 
             // Strip the '#' from the href

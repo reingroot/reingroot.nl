@@ -1,4 +1,6 @@
-define(["jquery"], function($) {
+define(["jquery"], function ($) {
+    "use strict";
+
     var wrapperSize = '970px',// The size of the main content wrapper element
         $itemsContainerParent,      // The main element containing the $itemsContainer amongst other elements
         $itemsContainer,            // The element containing the content item previews
@@ -8,7 +10,7 @@ define(["jquery"], function($) {
         itemsContainerState = "",   // The state of the $itemsContainer (load, resize, slideIn, slideOut, reset)
         $runningLoader = false;             // The current element that has an ajax spinner
 
-    var init = function(itemsContainerParent) {
+    var init = function (itemsContainerParent) {
 
         $itemsContainerParent = $(itemsContainerParent);
 
@@ -28,31 +30,31 @@ define(["jquery"], function($) {
         $itemsContainerParent.append($loadedItemContent);
 
         // Add eventlistner to the items container to listen if the transition is complete and we can commence slideIn
-        $itemsContainerParent.on('webkitTransitionEnd transitionend transitionEnd msTransitionEnd oTransitionEnd', function() {
+        $itemsContainerParent.on('webkitTransitionEnd transitionend transitionEnd msTransitionEnd oTransitionEnd', function () {
 
             switch (itemsContainerState) {
 
-                case "resize":
-                    $runningLoader.find('.ajax-loading').remove();
-                    $runningLoader = false;
+            case "resize":
+                $runningLoader.find('.ajax-loading').remove();
+                $runningLoader = false;
 
-                    slideIn();
+                slideIn();
 
-                    break;
+                break;
 
-                case "slideOut":
-                    reset();
-                    break;
+            case "slideOut":
+                reset();
+                break;
 
-                case "":
-                    cleanUp();
-                    break;
+            case "":
+                cleanUp();
+                break;
 
             }
         });
 
         // Use the Ajax endpoint instead of the static endpoint when using javascript
-        $items.on('click', function(e) {
+        $items.on('click', function (e) {
             var $this = $(this),
                 href = $this.find('a').attr('href');
 
@@ -69,10 +71,10 @@ define(["jquery"], function($) {
         // Reset the original height when resizing the window
         // TODO: this is not working as expected because it does not know the 'original size' as it is already 'resized' :( Some more thinking to do
         var resizeTimer;
-        $(window).on('resize', function() {
+        $(window).on('resize', function () {
             clearTimeout(resizeTimer);
 
-            resizeTimer = setTimeout(function() {
+            resizeTimer = setTimeout(function () {
                 origHeight =  $itemsContainerParent.height();
             }, 500);
 
@@ -80,9 +82,9 @@ define(["jquery"], function($) {
     };
 
     // Slide the new content into view from the right
-    var slideIn = function() {
+    var slideIn = function () {
         itemsContainerState = "slideIn";
-        var posLeft = parseInt($loadedItemContent.css('left'));
+        var posLeft = parseInt($loadedItemContent.css('left'), 10);
 
         if (posLeft !== 0) {
             $loadedItemContent.css('left', 0);
@@ -90,7 +92,7 @@ define(["jquery"], function($) {
     };
 
     // Load the requested content
-    var load = function(url, callback) {
+    var load = function (url, callback) {
         // Replace the default href with the ajax version
         var reg = /\/(item)\//;
         url = url.replace(reg, "/ajax_$1/");
@@ -100,17 +102,17 @@ define(["jquery"], function($) {
             url: url,
             data: {  },
             dataType: 'html',
-            beforeSend: function() {
+            beforeSend: function () {
                 if (!$runningLoader) {
                     $itemsContainerParent.append('<span class="ajax-loading"></span>');
                     $runningLoader = $itemsContainerParent;
                 }
             }
-        }).done(function(msg) {
+        }).done(function (msg) {
             $loadedItemContent.html(msg);
 
             // Activate the 'back to overview' link
-            $loadedItemContent.find('.js-to-overview').on('click', function(e) {
+            $loadedItemContent.find('.js-to-overview').on('click', function (e) {
 
                 slideOut();
 
@@ -118,7 +120,7 @@ define(["jquery"], function($) {
             });
 
             // Activate the 'next' link
-            $loadedItemContent.find('.js-to-next').on('click', function(e) {
+            $loadedItemContent.find('.js-to-next').on('click', function (e) {
                 var $this = $(this);
                 var href = $this.attr('href');
 
@@ -129,7 +131,7 @@ define(["jquery"], function($) {
             });
 
             // Activate the 'previous' link
-            $loadedItemContent.find('.js-to-previous').on('click', function(e) {
+            $loadedItemContent.find('.js-to-previous').on('click', function (e) {
                 var $this = $(this);
                 var href = $this.attr('href');
 
@@ -168,7 +170,7 @@ define(["jquery"], function($) {
             newHeight = loadedItemContentHeight  - padding;
 
             // Trigger a reflow before setting the new height
-            setTimeout(function() {
+            setTimeout(function () {
                 $itemsContainerParent.removeClass('no-transition');
 
                 $itemsContainerParent.height(newHeight + 'px');
@@ -188,7 +190,7 @@ define(["jquery"], function($) {
             newHeight = loadedItemContentHeight + (itemsContainerParentHeight - loadedItemContentHeight);
 
             // Trigger a reflow before setting the new height
-            setTimeout(function() {
+            setTimeout(function () {
                 $loadedItemContent.removeClass('no-transition');
                 $itemsContainerParent.removeClass('no-transition');
 
@@ -201,7 +203,7 @@ define(["jquery"], function($) {
             }, 0);
         } else {
             // Trigger a reflow before setting the new height
-            setTimeout(function() {
+            setTimeout(function () {
                 $itemsContainerParent.removeClass('no-transition');
                 $itemsContainerParent.triggerHandler('transitionend');
 
@@ -211,11 +213,11 @@ define(["jquery"], function($) {
     };
 
     // Slide the item content out of view to the left
-    var slideOut = function() {
+    var slideOut = function () {
         itemsContainerState = "slideOut";
 
         var itemsContainerWidth = $itemsContainerParent.outerWidth();
-        $loadedItemContent.css('left', ((itemsContainerWidth * -1) - 10)+'px');
+        $loadedItemContent.css('left', ((itemsContainerWidth * -1) - 10) + 'px');
 
         // If there is no transitionend event, trigger it manually
         if (!_transitionEndExists()) {
@@ -224,7 +226,7 @@ define(["jquery"], function($) {
     };
 
     // Reset the container and it's items to their original position and height
-    var reset = function() {
+    var reset = function () {
         itemsContainerState = "";
 
         $loadedItemContent.addClass('no-transition');
@@ -238,27 +240,27 @@ define(["jquery"], function($) {
             if (!_transitionEndExists()) {
                 $itemsContainerParent.triggerHandler('transitionend');
             }
-        } else if ($itemsContainerParent.height() === parseInt(origHeight)) {
+        } else if ($itemsContainerParent.height() === parseInt(origHeight, 10)) {
             // If the container height does not need a reset, trigger the transitioned event manually to set the height property back to 'auto'
             $itemsContainerParent.triggerHandler('transitionend');
         }
 
-        setTimeout(function() { // Triggering reflow
+        setTimeout(function () { // Triggering reflow
             $loadedItemContent.removeClass('no-transition');
         }, 0);
     };
 
     // Cleanup the height to be set back to 'auto' facilitate resizing of the page
-    var cleanUp = function() {
+    var cleanUp = function () {
         $itemsContainerParent.addClass('no-transition');
         $itemsContainerParent.height('auto');
 
-        setTimeout(function() { // Triggering reflow
+        setTimeout(function () { // Triggering reflow
             $itemsContainerParent.removeClass('no-transition');
         }, 0);
     };
 
-    var _transitionEndExists = function() {
+    var _transitionEndExists = function () {
         if ('ontransitionend' in window) {
             return true;
         } else if ('onwebkittransitionend' in window) {

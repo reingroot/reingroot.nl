@@ -2,40 +2,24 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
         jshint : {
-            files : ["../../js/**/*.js"],
+            files : ["./js/**/*.js"],
             options : {
-                "browser":  true,
-                "eqeqeq":   true,
-                "curly":    true,
-                "forin":    true,
-                "immed":    true,
-                "latedef":  true,
-                "undef":     true,
-                "unused":    true,
-                "trailing":  true,
-                "strict":    true,
-                "smarttabs": true,
-                "maxlen":    200,
-                "indent":    4,
-                "evil":     true,
-                "white":    true,
-                "globals" : {
-                    "define" : true,
-                    "require" : true
-                },
+                "jshintrc": "./.jshintrc",
                 // ignore libs and known legacy issues
                 ignores : [
-                    "../js/query.js",
-                    "../js/require.js",
-                    "../js/require-jquery.js",
-//                    "../js/modules/active-link-highliter.js",
-                    "../js/modules/item-loader.js"
+                    "./js/jquery.js",
+                    "./js/require.js",
+                    "./js/vendor/jquery.ba-bbq.js",
+                    "./js/vendor/jquery.ba-bbq.min.js",
+                    "./js/vendor/modernizr-2.6.2.min.js"
                 ],
                 reporter : "checkstyle",
                 reporterOutput : "test/target/jshint/jshint-results.xml"
             }
         },
+
         mocha_phantomjs : {
             all : [
                 "test/mocha/**/*.html"
@@ -44,7 +28,8 @@ module.exports = function (grunt) {
                 "reporter" : "xunit",
                 "output" : "test/target/mocha/results/result.xml"
             }
-//        },
+        }
+
 //        requirejs : {
 //            compile : {
 //                options : {
@@ -72,8 +57,7 @@ module.exports = function (grunt) {
 //                                'vendor/jquery.ba-bbq.min.js',
 //                                'vendor/modernizr-2.6.2.min.js',
 //                                'jquery.js',
-//                                'require.js',
-//                                'require-jquery.js'
+//                                'require.js'
 //                            ]
 //                        },
 //                        {
@@ -84,14 +68,13 @@ module.exports = function (grunt) {
 //                                'vendor/jquery.ba-bbq.min.js',
 //                                'vendor/modernizr-2.6.2.min.js',
 //                                'jquery.js',
-//                                'require.js',
-//                                'require-jquery.js'
+//                                'require.js'
 //                            ]
 //                        }
 //                    ]
 //                }
 //            }
-        }
+//        }
     });
 
     // load tasks
@@ -99,11 +82,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-phantomjs');
 
-    // Default task(s).
-//    grunt.registerTask('default', ['jshint', 'mocha_phantomjs', 'requirejs']);
-    grunt.registerTask('test', ['jshint', 'mocha_phantomjs']);
+    grunt.registerTask('test', ['jshint', 'install_hooks']);
 
-    grunt.registerTask('default', function () {
+    grunt.registerTask('install_hooks', function () {
         var fs = require('fs');
 
         // my precommit hook is inside the repo as /hooks/pre-commit
@@ -113,4 +94,7 @@ module.exports = function (grunt) {
         // chmod the file to readable and executable by all
         fs.chmodSync('.git/hooks/pre-commit', '755');
     });
+
+    // Default task
+    grunt.registerTask('default', ['jshint', 'mocha_phantomjs', 'requirejs']);
 };
