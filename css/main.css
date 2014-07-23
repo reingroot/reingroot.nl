@@ -215,6 +215,7 @@ html, body { height: 100%; }
 			.no-js .rg-contact textarea { height: 205px; }
 				.rg-contact input { margin-bottom: 24px; width: 82.142857142857%; padding: 15px 8.571428571429%; }
 				.rg-contact input[type="submit"] { background: #db4105; color: #ffffff; font-weight: bold; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box; }
+                .rg-contact .required { display: none; }
 
 		footer { background: #33332d; color: #ffffff; max-width: 960px; margin: -130px auto; padding-bottom: 24px; }
 		footer a { color: #ffffff; text-decoration: none; }
