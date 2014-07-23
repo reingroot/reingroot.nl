@@ -82,8 +82,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-phantomjs');
 
-    grunt.registerTask('test', ['jshint', 'install_hooks']);
-
+    // Install the git hooks
     grunt.registerTask('install_hooks', function () {
         var fs = require('fs');
 
@@ -97,4 +96,7 @@ module.exports = function (grunt) {
 
     // Default task
     grunt.registerTask('default', ['jshint', 'mocha_phantomjs', 'requirejs']);
+
+    // Task to be run by pre-commit hook
+    grunt.registerTask('test', ['jshint', 'install_hooks']);
 };
