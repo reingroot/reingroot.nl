@@ -28,3 +28,7 @@ CI_code_completion
 # Node modules #
 ######################
 node_modules
+
+# Generated reports #
+######################
+test/target
