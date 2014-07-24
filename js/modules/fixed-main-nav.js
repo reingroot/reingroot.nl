@@ -1,4 +1,7 @@
-define(['jquery', 'vendor/viewport'], function($) {
+define(['jquery', 'vendor/viewport'], function ($) {
+
+    "use strict";
+
     var headerFixed     = false,
         sideNavActive   = false,
         $mainWrapper    = $('.main-wrapper'),
@@ -7,8 +10,8 @@ define(['jquery', 'vendor/viewport'], function($) {
         $mainNavOrgParent = $mainNav.parent(),
         $taglineEl      = $('.tagline');
 
-    $(window).on('scroll', function() {
-        setTimeout(function() {
+    $(window).on('scroll', function () {
+        setTimeout(function () {
             var $headerVisible   = $('header:in-viewport'),
                 $headerHidden    = $('header:above-the-top');
 
@@ -19,7 +22,7 @@ define(['jquery', 'vendor/viewport'], function($) {
                             .parent()
                             .css('top', '-' + $mainNav.outerHeight() + 'px');
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $mainNav.parent().addClass('fixed-nav').css('top', '0');
                     headerFixed = true;
                 }, 0);
@@ -34,17 +37,17 @@ define(['jquery', 'vendor/viewport'], function($) {
     });
     $(window).triggerHandler('scroll');
 
-    $(window).on('resize', function() {
-        setTimeout(function() {
+    $(window).on('resize', function () {
+        setTimeout(function () {
             if (!sideNavActive && Modernizr.mq('screen and (max-width: 480px)')) {
                 $('body').prepend($mainNav);
 
                 // Move the content to the side to show the navigation
-                $taglineEl.on('click', function() {
+                $taglineEl.on('click', function () {
                     $mainWrapper.toggleClass('open');
                 });
 
-                $homeLink.on('click', function(e) {
+                $homeLink.on('click', function (e) {
                     $mainWrapper.toggleClass('open');
 
                     e.preventDefault();

@@ -18,6 +18,7 @@
         "define": true,
         "require": true,
         "WebFontConfig": true,
-        "requirejs": true
+        "requirejs": true,
+        "Modernizr": true
     }
 }

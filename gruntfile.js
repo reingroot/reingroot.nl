@@ -11,9 +11,7 @@ module.exports = function (grunt) {
                 ignores : [
                     "./js/jquery.js",
                     "./js/require.js",
-                    "./js/vendor/jquery.ba-bbq.js",
-                    "./js/vendor/jquery.ba-bbq.min.js",
-                    "./js/vendor/modernizr-2.6.2.min.js"
+                    "./js/vendor/*"
                 ],
                 reporter : "checkstyle",
                 reporterOutput : "test/target/jshint/jshint-results.xml"
