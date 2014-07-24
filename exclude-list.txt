@@ -11,3 +11,4 @@ hooks
 tmp
 log
 test
+application/config/database.php
