@@ -1,0 +1,14 @@
+exclude-list.txt
+gruntfile.js
+package.json
+.gitignore
+.jshintrc
+license.txt
+.git
+README.md
+node_modules
+hooks
+tmp
+log
+test
+application/config/database.php

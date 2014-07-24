@@ -21,7 +21,8 @@
 			<input type="text" name="name" value="<?php echo set_value('name'); ?>" id="name" class="form-element <?php echo (form_error('name') != '' ? 'error' : ''); ?>" />
 			<label for="email"><strong>Your email</strong></label>
 			<input type="email" name="email" value="<?php echo set_value('email'); ?>" id="email" class="form-element <?php echo (form_error('email') != '' ? 'error' : ''); ?>" />
-			<input type="submit" value="Submit" class="form-element" />
+			<input type="text" value="" name="address" class="required" />
+            <input type="submit" value="Submit" class="form-element" />
 		</fieldset>
 	</form>
 </article>

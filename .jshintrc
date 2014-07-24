@@ -1,0 +1,23 @@
+{
+    "browser": true,
+    "eqeqeq": true,
+    "curly": true,
+    "forin": true,
+    "immed": true,
+    "latedef": true,
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "strict": true,
+    "smarttabs": true,
+    "maxlen": 200,
+    "indent": 4,
+    "evil": true,
+    "white": true,
+    "globals": {
+        "define": true,
+        "require": true,
+        "WebFontConfig": true,
+        "requirejs": true
+    }
+}

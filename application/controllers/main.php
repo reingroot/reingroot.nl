@@ -51,7 +51,7 @@ class Main extends CI_Controller {
 
         $data["enable_anchors"] = TRUE;
 
-        if ($this->form_validation->run('contact') == FALSE)
+        if ($this->input->post('address') !== '' || $this->form_validation->run('contact') == FALSE)
         {
             $this->load->view('header', $data);
             $this->load->view('main-nav', $data);

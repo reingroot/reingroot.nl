@@ -1,6 +1,6 @@
 <article class="content rg-bio clearfix" id="bio">
 	<p>
-		With over fourteen years of industry experience, Rein encompasses both business and technical expertise, making him a valuable all-rounder for clients seeking to develop new platforms fast and efficiently. A skilled front-end developer, qualified project manager, and experienced technical consultant, with a background at Accenture, means Rein Groot can fit into multiple roles seamlessly.
+		With over fourteen years of industry experience, Rein encompasses both business and technical expertise, making him a valuable all-rounder for clients seeking to develop new platforms fast and efficiently. A skilled UX designer, analytical front-end developer, qualified project manager, and experienced technical consultant, with a background at Accenture, means Rein Groot can fit into multiple roles seamlessly.
 	</p>
 
 	<article>

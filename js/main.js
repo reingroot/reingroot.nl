@@ -6,21 +6,22 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'modules/active-link-highlighter'], function($) {
+require(['jquery', 'modules/active-link-highlighter'], function ($) {
+    "use strict";
 
     // On DOM load
-    $(function() {
-        require(['modules/item-loader', 'modules/fixed-main-nav'], function(portfolioItemLoader) {
+    $(function () {
+        require(['modules/item-loader', 'modules/fixed-main-nav'], function (portfolioItemLoader) {
 
             portfolioItemLoader.init('.js-item-loader');
 
         });
 
         // Set toggle event handler
-        $('.js-toggle').on('click', function toggleElementClass(e){
-            if (!toggleElementClass.$this) toggleElementClass.$this = $(this);
-            if (!toggleElementClass.toggleClass) toggleElementClass.toggleClass = toggleElementClass.$this.data('toggleClass');
-            if (!toggleElementClass.$toggleElement) toggleElementClass.$toggleElement = $(toggleElementClass.$this.data('toggleElement'));
+        $('.js-toggle').on('click', function toggleElementClass(e) {
+            if (!toggleElementClass.$this) { toggleElementClass.$this = $(this); }
+            if (!toggleElementClass.toggleClass) { toggleElementClass.toggleClass = toggleElementClass.$this.data('toggleClass'); }
+            if (!toggleElementClass.$toggleElement) { toggleElementClass.$toggleElement = $(toggleElementClass.$this.data('toggleElement')); }
 
             toggleElementClass.$toggleElement.toggleClass(toggleElementClass.toggleClass);
 
@@ -28,10 +29,10 @@ require(['jquery', 'modules/active-link-highlighter'], function($) {
         });
 
         // Font Deck settings and initiation
-		WebFontConfig = { fontdeck: { id: '29454' } };
-		(function() {
+		window.WebFontConfig = { fontdeck: { id: '29454' } };
+		(function () {
 			var wf = document.createElement('script');
-			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			wf.src = ('https:' === document.location.protocol ? 'https' : 'http') +
 			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
 			wf.type = 'text/javascript';
 			wf.async = 'true';
