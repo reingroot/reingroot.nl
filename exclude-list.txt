@@ -1,5 +1,7 @@
-node_modules
-test
-README.md
-hooks
+exclude-list.txt
+gruntfile.js
 package.json
+README.md
+node_modules
+hooks
+tmp
