@@ -1,9 +1,8 @@
 #!/bin/sh
-#echo "\n| [prettify bookmarklet post-commit hook]"
 
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 ROOT="$(git rev-parse --show-toplevel)"
 
-cd "$ROOT"/test
+cd "$ROOT"
 
-/usr/local/bin/grunt "test"
+/usr/local/bin/grunt "precommit"
