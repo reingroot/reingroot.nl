@@ -1,4 +1,4 @@
-define(['jquery', 'vendor/jquery.ba-bbq'], function ($) {
+define(['ven/jquery', 'ven/jquery.ba-bbq'], function ($) {
     "use strict";
 
     $(window).on('hashchange', function () {

@@ -1,4 +1,4 @@
-define(["jquery"], function ($) {
+define(["ven/jquery"], function ($) {
     "use strict";
 
     var wrapperSize = '970px',// The size of the main content wrapper element

@@ -31,26 +31,12 @@ module.exports = function (grunt) {
         requirejs : {
             compile : {
                 options : {
-                    appDir  : "./js",
-                    baseUrl : "./",
+                    appDir  : "./",
+                    baseUrl : "./js/modules",
                     dir     : "test/target/build",
                     paths   : {
-                        "mods" : "modules",
-                        "vendor" : "vendor"
-                    },
-                    optimize : "uglify2",
-                    uglify2 : {
-                        output: {
-                            beautify: false
-                        },
-                        compress: {
-                            sequences: false,
-                            global_defs: {
-                                DEBUG: false
-                            }
-                        },
-                        warnings: true,
-                        mangle: true
+                        "mods" : "",
+                        "ven" : "vendor"
                     },
                     preserveLicenseComments: true,
                     findNestedDependencies: true,
@@ -60,7 +46,7 @@ module.exports = function (grunt) {
                         name :
                             'mods/active-link-highlighter',
                         exclude : [
-                            'vendor/jquery.ba-bbq',
+                            'ven/jquery.ba-bbq',
                             'jquery'
                         ]
                     },
@@ -68,7 +54,7 @@ module.exports = function (grunt) {
                         name :
                             'mods/item-loader',
                         exclude : [
-                            'vendor/jquery.ba-bbq',
+                            'ven/jquery.ba-bbq',
                             'jquery'
                         ]
                     },
@@ -76,7 +62,7 @@ module.exports = function (grunt) {
                         name :
                             'mods/fixed-main-nav',
                         exclude : [
-                            'vendor/viewport',
+                            'ven/viewport',
                             'jquery'
                         ]
                     }]
@@ -90,6 +76,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-phantomjs');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Install the git hooks
     grunt.registerTask('install_hooks', function () {

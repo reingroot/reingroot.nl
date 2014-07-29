@@ -1,17 +1,21 @@
 requirejs.config({
+    'paths': {
+        'ven': 'vendor',
+        'mods': 'modules'
+    },
     'shim': {
-        'vendor/jquery.ba-bbq.min': ['jquery'],
-        'vendor/jquery.ba-bbq': ['jquery'],
-        'vendor/viewport': ['jquery']
+        'ven/jquery.ba-bbq.min': ['ven/jquery'],
+        'ven/jquery.ba-bbq': ['ven/jquery'],
+        'ven/viewport': ['ven/jquery']
     }
 });
 
-require(['jquery', 'modules/active-link-highlighter'], function ($) {
+require(['ven/jquery', 'mods/active-link-highlighter'], function ($) {
     "use strict";
 
     // On DOM load
     $(function () {
-        require(['modules/item-loader', 'modules/fixed-main-nav'], function (portfolioItemLoader) {
+        require(['mods/item-loader', 'mods/fixed-main-nav'], function (portfolioItemLoader) {
 
             portfolioItemLoader.init('.js-item-loader');
 

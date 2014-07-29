@@ -1,4 +1,4 @@
-define(['jquery', 'vendor/viewport'], function ($) {
+define(['ven/jquery', 'ven/viewport'], function ($) {
 
     "use strict";
 
