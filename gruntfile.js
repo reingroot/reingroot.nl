@@ -31,12 +31,12 @@ module.exports = function (grunt) {
         requirejs : {
             compile : {
                 options : {
-                    appDir  : "./",
-                    baseUrl : "./js/modules",
+                    appDir  : "./js",
+                    baseUrl : "./modules",
                     dir     : "test/target/build",
                     paths   : {
                         "mods" : "",
-                        "ven" : "vendor"
+                        "ven" : "../vendor"
                     },
                     preserveLicenseComments: true,
                     findNestedDependencies: true,
@@ -47,7 +47,7 @@ module.exports = function (grunt) {
                             'mods/active-link-highlighter',
                         exclude : [
                             'ven/jquery.ba-bbq',
-                            'jquery'
+                            'ven/jquery'
                         ]
                     },
                     {
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
                             'mods/item-loader',
                         exclude : [
                             'ven/jquery.ba-bbq',
-                            'jquery'
+                            'ven/jquery'
                         ]
                     },
                     {
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
                             'mods/fixed-main-nav',
                         exclude : [
                             'ven/viewport',
-                            'jquery'
+                            'ven/jquery'
                         ]
                     }]
                 }
@@ -94,5 +94,5 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['jshint', 'mocha_phantomjs', 'requirejs']);
 
     // Task to be run by pre-commit hook
-    grunt.registerTask('test', ['jshint', 'install_hooks']);
+    grunt.registerTask('precommit', ['install_hooks', 'jshint', 'requirejs']);
 };
