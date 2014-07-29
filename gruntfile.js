@@ -33,7 +33,7 @@ module.exports = function (grunt) {
                 options : {
                     appDir  : "./js",
                     baseUrl : "./modules",
-                    dir     : "test/target/build",
+                    dir     : "test/target/build/<%= pkg.version %>",
                     paths   : {
                         "mods" : "",
                         "ven" : "../vendor"
@@ -68,6 +68,15 @@ module.exports = function (grunt) {
                     }]
                 }
             }
+        },
+
+        copy: {
+            files: {
+                cwd: 'test/target/build/<%= pkg.version %>',    // set working folder / root to copy
+                src: '**/*',                                    // copy all files and subfolders
+                dest: 'js/<%= pkg.version %>',                  // destination folder
+                expand: true                                    // required when using cwd
+            }
         }
     });
 
@@ -76,7 +85,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-phantomjs');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Install the git hooks
     grunt.registerTask('install_hooks', function () {
@@ -91,8 +100,24 @@ module.exports = function (grunt) {
     });
 
     // Default task
-    grunt.registerTask('default', ['jshint', 'mocha_phantomjs', 'requirejs']);
+    grunt.registerTask('default', [
+        'jshint',
+        'mocha_phantomjs',
+        'requirejs'
+    ]);
 
     // Task to be run by pre-commit hook
-    grunt.registerTask('precommit', ['install_hooks', 'jshint', 'requirejs']);
+    grunt.registerTask('precommit', [
+        'install_hooks',
+        'jshint',
+        'requirejs'
+    ]);
+
+    // Task to be run by deploy build process
+    grunt.registerTask('deploy', [
+//        'mocha_phantomjs',
+        'jshint',
+        'requirejs',
+        'copy'
+    ]);
 };
