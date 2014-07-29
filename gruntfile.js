@@ -31,42 +31,62 @@ module.exports = function (grunt) {
         requirejs : {
             compile : {
                 options : {
-                    appDir  : "./js",
-                    baseUrl : "./modules",
-                    dir     : "test/target/build/<%= pkg.version %>",
-                    paths   : {
-                        "mods" : "",
-                        "ven" : "../vendor"
+                    appDir: "./js",
+                    baseUrl: "./modules",
+                    dir: "test/target/build/<%= pkg.version %>",
+                    paths: {
+                        "mods": "",
+                        "ven": "../vendor"
                     },
                     preserveLicenseComments: true,
                     findNestedDependencies: true,
                     optimizeCss: "standard.keepLines",
-                    preserveLicenceComments : true,
-                    modules : [{
-                        name :
-                            'mods/active-link-highlighter',
-                        exclude : [
-                            'ven/jquery.ba-bbq',
-                            'ven/jquery'
-                        ]
-                    },
-                    {
-                        name :
-                            'mods/item-loader',
-                        exclude : [
-                            'ven/jquery.ba-bbq',
-                            'ven/jquery'
-                        ]
-                    },
-                    {
-                        name :
-                            'mods/fixed-main-nav',
-                        exclude : [
-                            'ven/viewport',
-                            'ven/jquery'
-                        ]
-                    }]
+                    preserveLicenceComments: true,
+                    optimize: "none",
+                    modules: [
+                        {
+                            name: 'mods/active-link-highlighter',
+                            exclude: [
+                                'ven/jquery.ba-bbq',
+                                'ven/jquery'
+                            ]
+                        },
+                        {
+                            name: 'mods/item-loader',
+                            exclude: [
+                                'ven/jquery.ba-bbq',
+                                'ven/jquery'
+                            ]
+                        },
+                        {
+                            name: 'mods/fixed-main-nav',
+                            exclude: [
+                                'ven/viewport',
+                                'ven/jquery'
+                            ]
+                        },
+                        {
+                            name: '../main',
+                            exclude: [
+                                'ven/jquery'
+                            ]
+                        }
+                    ]
                 }
+            }
+        },
+
+        uglify: {
+            my_target: {
+                options: {
+                    sourceMap: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'test/target/build/<%= pkg.version %>',
+                    src: '**/*.js',
+                    dest: 'test/target/build/<%= pkg.version %>'
+                }]
             }
         },
 
@@ -96,6 +116,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-phantomjs');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-text-replace');
 
@@ -130,6 +151,7 @@ module.exports = function (grunt) {
 //        'mocha_phantomjs',
         'jshint',
         'requirejs',
+        'uglify',
         'copy',
         'replace'
     ]);
