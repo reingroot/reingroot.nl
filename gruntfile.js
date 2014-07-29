@@ -77,6 +77,17 @@ module.exports = function (grunt) {
                 dest: 'js/<%= pkg.version %>',                  // destination folder
                 expand: true                                    // required when using cwd
             }
+        },
+
+        replace: {
+            bump_version: {
+                src: ['js/main.js'],
+                overwrite: true,                 // overwrite matched source files
+                replacements: [{
+                    from: "'mods': 'modules'",
+                    to: "'mods': '<%= pkg.version %>/modules'"
+                }]
+            }
         }
     });
 
@@ -86,6 +97,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mocha-phantomjs');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-text-replace');
 
     // Install the git hooks
     grunt.registerTask('install_hooks', function () {
@@ -109,8 +121,8 @@ module.exports = function (grunt) {
     // Task to be run by pre-commit hook
     grunt.registerTask('precommit', [
         'install_hooks',
-        'jshint',
-        'requirejs'
+//        'mocha_phantomjs',
+        'jshint'
     ]);
 
     // Task to be run by deploy build process
@@ -118,6 +130,7 @@ module.exports = function (grunt) {
 //        'mocha_phantomjs',
         'jshint',
         'requirejs',
-        'copy'
+        'copy',
+        'replace'
     ]);
 };
