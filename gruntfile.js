@@ -3,6 +3,10 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        clean: {
+            build: ["js/<%= pkg.version %>"]
+        },
+
         jshint : {
             files : ["./js/**/*.js"],
             options : {
@@ -83,9 +87,9 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'test/target/build/<%= pkg.version %>',
+                    cwd: 'js/<%= pkg.version %>',
                     src: '**/*.js',
-                    dest: 'test/target/build/<%= pkg.version %>'
+                    dest: 'js/<%= pkg.version %>'
                 }]
             }
         },
@@ -100,12 +104,24 @@ module.exports = function (grunt) {
         },
 
         replace: {
-            bump_version: {
+            bump_version_js_source: {
                 src: ['js/main.js'],
                 overwrite: true,                 // overwrite matched source files
                 replacements: [{
                     from: "'mods': 'modules'",
                     to: "'mods': '<%= pkg.version %>/modules'"
+                },
+                {
+                    from: "'ven': 'vendor'",
+                    to: "'ven': '<%= pkg.version %>/vendor'"
+                }]
+            },
+            bump_version_php_header: {
+                src: ['application/views/header.php'],
+                overwrite: true,                 // overwrite matched source files
+                replacements: [{
+                    from: "js/vendor/modernizr.js",
+                    to: "/js/<%= pkg.version %>/vendor/modernizr.js"
                 }]
             }
         }
@@ -117,6 +133,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mocha-phantomjs');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-text-replace');
 
@@ -142,17 +159,19 @@ module.exports = function (grunt) {
     // Task to be run by pre-commit hook
     grunt.registerTask('precommit', [
         'install_hooks',
+        'clean:build',
 //        'mocha_phantomjs',
         'jshint'
     ]);
 
     // Task to be run by deploy build process
     grunt.registerTask('deploy', [
+        'clean:build',
 //        'mocha_phantomjs',
         'jshint',
         'requirejs',
-        'uglify',
         'copy',
+        'uglify',
         'replace'
     ]);
 };
