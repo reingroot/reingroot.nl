@@ -1,10 +1,18 @@
 module.exports = function (grunt) {
+    'use strict';
+
+    var globalConfig = {
+        target: 'test/target' // build dir
+    };
+
     // Project configuration.
     grunt.initConfig({
+        globalConfig: globalConfig,
         pkg: grunt.file.readJSON('package.json'),
 
         clean: {
-            build: ["js/<%= pkg.version %>"]
+            pre_build: ["js/<%= pkg.version %>"],
+            post_build: ["<%= globalConfig.target %>/build/"]
         },
 
         jshint : {
@@ -18,7 +26,7 @@ module.exports = function (grunt) {
                     "./js/vendor/*"
                 ],
                 reporter : "checkstyle",
-                reporterOutput : "test/target/jshint/jshint-results.xml"
+                reporterOutput : "<%= globalConfig.target %>/jshint/jshint-results.xml"
             }
         },
 
@@ -28,7 +36,7 @@ module.exports = function (grunt) {
             ],
             options : {
                 "reporter" : "xunit",
-                "output" : "test/target/mocha/results/result.xml"
+                "output" : "<%= globalConfig.target %>/mocha/results/result.xml"
             }
         },
 
@@ -37,7 +45,7 @@ module.exports = function (grunt) {
                 options : {
                     appDir: "./js",
                     baseUrl: "./modules",
-                    dir: "test/target/build/<%= pkg.version %>",
+                    dir: "<%= globalConfig.target %>/build/<%= pkg.version %>",
                     paths: {
                         "mods": "",
                         "ven": "../vendor"
@@ -96,7 +104,7 @@ module.exports = function (grunt) {
 
         copy: {
             files: {
-                cwd: 'test/target/build/<%= pkg.version %>',    // set working folder / root to copy
+                cwd: '<%= globalConfig.target %>/build/<%= pkg.version %>',    // set working folder / root to copy
                 src: '**/*',                                    // copy all files and subfolders
                 dest: 'js/<%= pkg.version %>',                  // destination folder
                 expand: true                                    // required when using cwd
@@ -104,8 +112,8 @@ module.exports = function (grunt) {
         },
 
         replace: {
-            bump_version_js_source: {
-                src: ['js/main.js'],
+            insert_version: {
+                src: ['js/main.js', 'application/views/header.php'],
                 overwrite: true,                 // overwrite matched source files
                 replacements: [{
                     from: "'mods': 'modules'",
@@ -114,28 +122,33 @@ module.exports = function (grunt) {
                 {
                     from: "'ven': 'vendor'",
                     to: "'ven': '<%= pkg.version %>/vendor'"
+                },
+                {
+                    from: "js/vendor/modernizr.js",
+                    to: "js/<%= pkg.version %>/vendor/modernizr.js"
                 }]
             },
-            bump_version_php_header: {
-                src: ['application/views/header.php'],
+            reset_version: {
+                src: ['js/main.js', 'application/views/header.php'],
                 overwrite: true,                 // overwrite matched source files
                 replacements: [{
-                    from: "js/vendor/modernizr.js",
-                    to: "/js/<%= pkg.version %>/vendor/modernizr.js"
+                    from: "'mods': '<%= pkg.version %>/modules'",
+                    to: "'mods': 'modules'"
+                },
+                {
+                    from: "'ven': '<%= pkg.version %>/vendor'",
+                    to: "'ven': 'vendor'"
+                },
+                {
+                    from: "js/<%= pkg.version %>/vendor/modernizr.js",
+                    to: "js/vendor/modernizr.js"
                 }]
             }
         }
     });
 
     // load tasks
-//    grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-mocha-phantomjs');
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-text-replace');
+    require('load-grunt-tasks')(grunt);
 
     // Install the git hooks
     grunt.registerTask('install_hooks', function () {
@@ -159,19 +172,25 @@ module.exports = function (grunt) {
     // Task to be run by pre-commit hook
     grunt.registerTask('precommit', [
         'install_hooks',
-        'clean:build',
+        'clean:pre_build',
 //        'mocha_phantomjs',
         'jshint'
     ]);
 
     // Task to be run by deploy build process
     grunt.registerTask('deploy', [
-        'clean:build',
+        'clean:pre_build',
 //        'mocha_phantomjs',
         'jshint',
         'requirejs',
         'copy',
         'uglify',
-        'replace'
+        'replace:insert_version_js_source',
+        'clean:post_build'
+    ]);
+
+    grunt.registerTask('reset', [
+        'clean',
+        'replace:reset_version'
     ]);
 };
