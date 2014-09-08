@@ -53,7 +53,6 @@ module.exports = function (grunt) {
                     preserveLicenseComments: true,
                     findNestedDependencies: true,
                     optimizeCss: "standard.keepLines",
-                    preserveLicenceComments: true,
                     optimize: "none",
                     modules: [
                         {
@@ -104,10 +103,20 @@ module.exports = function (grunt) {
 
         sass: {
             dist: {
+                options: {
+                    style: 'compact'
+                },
                 files: {
                     'css/<%= pkg.version %>/main.css': 'scss/main.scss',
                     'css/<%= pkg.version %>/normalize.css': 'scss/normalize.scss'
                 }
+            }
+        },
+
+        watch: {
+            scripts: {
+                files: ['scss/**/*.scss'],
+                tasks: ['sass:dist']
             }
         },
 
