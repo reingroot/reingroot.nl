@@ -11,7 +11,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         clean: {
-            pre_build: ["js/<%= pkg.version %>"],
+            pre_build: ["js/<%= pkg.version %>", "css/"],
             post_build: ["<%= globalConfig.target %>/build/"]
         },
 
@@ -102,6 +102,15 @@ module.exports = function (grunt) {
             }
         },
 
+        sass: {
+            dist: {
+                files: {
+                    'css/<%= pkg.version %>/main.css': 'scss/main.scss',
+                    'css/<%= pkg.version %>/normalize.css': 'scss/normalize.scss'
+                }
+            }
+        },
+
         copy: {
             files: {
                 cwd: '<%= globalConfig.target %>/build/<%= pkg.version %>',    // set working folder / root to copy
@@ -126,6 +135,10 @@ module.exports = function (grunt) {
                 {
                     from: "js/vendor/modernizr.js",
                     to: "js/<%= pkg.version %>/vendor/modernizr.js"
+                },
+                {
+                    from: "?>css/",
+                    to: "?>css/<%= pkg.version %>/"
                 }]
             },
             reset_version: {
@@ -142,6 +155,10 @@ module.exports = function (grunt) {
                 {
                     from: "js/<%= pkg.version %>/vendor/modernizr.js",
                     to: "js/vendor/modernizr.js"
+                },
+                {
+                    from: "?>css/<%= pkg.version %>/",
+                    to: "?>css/"
                 }]
             }
         }
@@ -180,12 +197,14 @@ module.exports = function (grunt) {
     // Task to be run by deploy build process
     grunt.registerTask('deploy', [
         'clean:pre_build',
+        'reset',
 //        'mocha_phantomjs',
         'jshint',
         'requirejs',
+        'sass:dist',
         'copy',
         'uglify',
-        'replace:insert_version_js_source',
+        'replace:insert_version',
         'clean:post_build'
     ]);
 

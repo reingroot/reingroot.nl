@@ -97,8 +97,8 @@ textarea {
    ----------------------------------------------------------------*/
 
 	.system-feedback { background-position: 20px center; background-repeat: no-repeat; color: #ffffff; padding: 20px 20px 20px 75px; min-height: 40px; }
-	.system-feedback.success { background-color: #64b432; background-image: url(../img/icon_checkmark_round.png); color: #ffffff; }
-	.system-feedback.error { background-color: #e60000; background-image: url(../img/icon_exclamation_round.png); color: #ffffff; }
+	.system-feedback.success { background-color: #64b432; background-image: url(../../img/icon_checkmark_round.png); color: #ffffff; }
+	.system-feedback.error { background-color: #e60000; background-image: url(../../img/icon_exclamation_round.png); color: #ffffff; }
 		.form-element.error { border:2px solid #CC0000; }
 
 	form em { background: none repeat scroll 0 0 #F7CBCA; left: 230px; position: absolute; text-align: left; top: 6px; width: 215px; }
@@ -128,7 +128,7 @@ html, body { height: 100%; }
 
     .js .no-js-msg { display: none; }
 
-    .ajax-loading { background: rgb(255,255,255) url(../img/ajax-loader.gif) no-repeat center center; background-color: rgba(255,255,255,0.8); bottom: 0; left: 0; position: absolute; right: 0;  top: 0; }
+    .ajax-loading { background: rgb(255,255,255) url(../../img/ajax-loader.gif) no-repeat center center; background-color: rgba(255,255,255,0.8); bottom: 0; left: 0; position: absolute; right: 0;  top: 0; }
 
 		header { position: relative; }
 
@@ -157,7 +157,7 @@ html, body { height: 100%; }
 
 			.rg-services, .rg-contact { background-color: #f2f2f2; }
 
-			.rg-bio { background: transparent url(../img/portret.png) no-repeat 30px bottom; }
+			.rg-bio { background: transparent url(../../img/portret.png) no-repeat 30px bottom; }
 			.rg-bio.content { padding-bottom: 0; }
             .rg-bio a { color: #333333; }
             .rg-bio a:hover { text-decoration: none; }
@@ -206,7 +206,7 @@ html, body { height: 100%; }
 				.rg-portfolio-item ul img { max-width: 100%; }
 				.rg-portfolio-item .last { margin-bottom: 0; }
 				.rg-portfolio-item .rg-services-used { list-style: none; padding-left: 0; }
-				.rg-portfolio-item .rg-services-used li { background: url(../img/bullet_low_res.png) no-repeat 0 center; padding-left: 15px; }
+				.rg-portfolio-item .rg-services-used li { background: url(../../img/bullet_low_res.png) no-repeat 0 center; padding-left: 15px; }
 				.rg-portfolio-item .item-description { float: right; width: 65.555555555556%; }
 				.rg-portfolio-item .item-description h1 { text-align: left; }
 				.rg-portfolio-item .item-description a { color: #037e8b; font-weight: bold; text-decoration: none; }
@@ -400,7 +400,7 @@ html, body { height: 100%; }
     .main-wrapper { position: relative; }
     .main-wrapper.open { left: 200px; }
 
-    body > .main-nav { background-image: url(../img/close-side-nav.png); background-repeat: no-repeat; background-position: center 15px; height: 100%; left: 0px; padding: 12px 0 0 5px; position: fixed; text-align: left; width: 200px; z-index: 0; }
+    body > .main-nav { background-image: url(../../img/close-side-nav.png); background-repeat: no-repeat; background-position: center 15px; height: 100%; left: 0px; padding: 12px 0 0 5px; position: fixed; text-align: left; width: 200px; z-index: 0; }
     .main-nav { height: auto; padding-top: 12px; text-align: center; }
 	.main-nav ol { float: none; padding: 0; margin: 15px 0 0; }
 	.main-nav li { border-top: #5c5c56 1px solid; float: none; margin-right: 0; padding: 5px 0 5px 0; }
@@ -411,7 +411,7 @@ html, body { height: 100%; }
 
 	.tagline { padding: 12px; text-align: center; }
     .tagline:hover { cursor: pointer; }
-    .main-nav + .main-wrapper .tagline { padding: 12px 12px 12px 50px; background-image: url(../img/open-side-nav.png); background-repeat: no-repeat; background-position: left center; }
+    .main-nav + .main-wrapper .tagline { padding: 12px 12px 12px 50px; background-image: url(../../img/open-side-nav.png); background-repeat: no-repeat; background-position: left center; }
     .main-wrapper.open .tagline { background-image: none; padding-left: 5px; }
 
 	.rg-bio img { float: none; }
