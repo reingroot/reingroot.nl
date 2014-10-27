@@ -36,5 +36,5 @@
     <body >
 		<div class="main-wrapper <?php echo $css_background; ?> " role="main">
             <p class="system-feedback error no-js-msg">
-                It seems you don not have JavaScript enabled. You can still use the site. However, turning JavaScript will make your experience smoother.
+                It seems you do not have JavaScript enabled. You can still use the site. However, turning JavaScript on will make your experience smoother.
             </p>
