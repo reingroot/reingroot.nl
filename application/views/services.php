@@ -26,7 +26,7 @@
 			</p>
 			<h3>Core skills:</h3>
 			<ul class="core-skills">
-				<li>Official User Experience (UX) design eduction</li>
+				<li>Official User Experience (UX) design education</li>
 				<li>Fourteen years of solid HTML, CSS and JavaScript experience</li>
 				<li>Skilled in defining and implementing technical project briefs</li>
 			</ul>
