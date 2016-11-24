@@ -5,4 +5,4 @@ ROOT="$(git rev-parse --show-toplevel)"
 
 cd "$ROOT"
 
-/usr/local/bin/grunt "precommit"
+grunt "precommit"
