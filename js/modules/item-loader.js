@@ -10,7 +10,7 @@ define(["ven/jquery"], function ($) {
         itemsContainerState = "",   // The state of the $itemsContainer (load, resize, slideIn, slideOut, reset)
         $runningLoader = false;             // The current element that has an ajax spinner
 
-    var init = function (itemsContainerParent) {
+    function init(itemsContainerParent) {
 
         $itemsContainerParent = $(itemsContainerParent);
 
@@ -79,7 +79,7 @@ define(["ven/jquery"], function ($) {
             }, 500);
 
         });
-    };
+    }
 
     // Slide the new content into view from the right
     var slideIn = function () {
