@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$allowed_domains = array('www.reingroot.nl', 'localhost:8888/reingroot-nl/');
+$allowed_domains = array('www.reingroot.nl', 'release.reingroot.nl', 'localhost:8888/reingroot-nl/');
 $default_domain  = 'localhost:8888/reingroot-nl/';
 
 if (in_array($_SERVER['HTTP_HOST'], $allowed_domains, TRUE))
