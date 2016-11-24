@@ -14,7 +14,26 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$allowed_domains = array('www.reingroot.nl', 'release.reingroot.nl', 'localhost:8888/reingroot-nl/');
+$default_domain  = 'localhost:8888/reingroot-nl/';
+
+if (in_array($_SERVER['HTTP_HOST'], $allowed_domains, TRUE))
+{
+    $domain = $_SERVER['HTTP_HOST'];
+}
+else
+{
+    $domain = $default_domain;
+}
+
+if ( ! empty($_SERVER['HTTPS']))
+{
+    $config['base_url'] = 'https://'.$domain;
+}
+else
+{
+    $config['base_url'] = 'http://'.$domain;
+}
 
 /*
 |--------------------------------------------------------------------------
