@@ -190,9 +190,13 @@ module.exports = function (grunt) {
 
     // Default task
     grunt.registerTask('default', [
-        'jshint',
-        'mocha_phantomjs',
-        'requirejs'
+        'clean:pre_build',
+        'reset',
+        'requirejs',
+        'sass:dist',
+        'copy',
+        'replace:insert_version',
+        'clean:post_build'
     ]);
 
     // Task to be run by pre-commit hook
