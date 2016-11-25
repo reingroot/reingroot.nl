@@ -10,12 +10,12 @@ requirejs.config({
     }
 });
 
-require(['ven/jquery', 'mods/active-link-highlighter'], function ($) {
+require(['ven/jquery', 'mods/item-loader', 'mods/active-link-highlighter'], function ($, portfolioItemLoader) {
     "use strict";
 
     // On DOM load
     $(function () {
-        require(['mods/item-loader', 'mods/fixed-main-nav'], function (portfolioItemLoader) {
+        require(['mods/fixed-main-nav'], function () {
 
             portfolioItemLoader.init('.js-item-loader');
 
