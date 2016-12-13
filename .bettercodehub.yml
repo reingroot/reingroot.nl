@@ -1,0 +1,16 @@
+exclude:
+- /application/config/.*
+- /application/controllers/migrate.php
+- /application/errors/.*
+- /application/helpers/custom_helper.php
+- /application/language/english/form_validation_lang.php
+- /application/migrations/001_add_portfolio_content.php
+- /application/models/portfolio_model.php
+- /gruntfile.js
+- /js/vendor/.*
+- /system/.*
+component_depth: 1
+languages:
+- javascript
+- php
+- script
